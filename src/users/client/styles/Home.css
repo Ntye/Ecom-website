@@ -1,21 +1,19 @@
-.home-banner-container {
-  /* position: absolute; */
+/* .home-banner-container {
+  position: absolute;
   top: 0rem;
   left: 0;
   z-index: -2;
 }
 
 .home-banner {
-  /* position: absolute; */
+  position: absolute;
   top: 0rem;
-  right: -5rem;
-  /* width: 55rem;
-  height: 24.375rem; */
-  
+  right: -28px;
 }
 
-.navbar-image {
+.PinkSquiggle {
   width: 55rem;
   height: 24.4rem;
+  right: -30px;
   z-index: -2;
-}
+} */
