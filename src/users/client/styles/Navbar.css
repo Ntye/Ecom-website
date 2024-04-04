@@ -10,3 +10,9 @@
   gap: 19.38rem
 }
 
+.home-banner-container {
+  position: absolute;
+  top: 0rem;
+  left: 0;
+  z-index: -2;
+}

@@ -1,12 +1,19 @@
 // import React from 'react'
 import "./styles/Login.css"
+import Logo from "../assets/greenSquiggle.svg"
+import Logo1 from "../assets/pinkSquiggle.svg"
 import Navbar from "../users/client/components/Navbar"
-import Logo from "../../../assets/greenSquiggle.svg"
 
 const Login = () => {
   return (
     <div>
       <Navbar/>
+      <div className="home-banner-container">
+        <img src={Logo} alt="" />
+      </div>
+      <div className="home-banner">
+        <img src={Logo1} alt="" />
+      </div>
       <div className="body">
         <div className="form">
           <label>Username</label>
@@ -19,9 +26,6 @@ const Login = () => {
             defaultValue="Login" 
             className="button"
           />
-        <div className='nav-logo-container'>
-          <img src={Logo} alt=""/>
-        </div>
         </div>
       </div>
     </div>
