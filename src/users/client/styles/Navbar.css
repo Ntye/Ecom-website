@@ -1,0 +1,12 @@
+.navbar {
+  background-color: rgba(0, 0, 0, 0.306);
+  display: flex;
+  margin-left: 4.0625rem;
+  margin-right: 4.0625rem;
+  margin-top: 1.875rem;
+  height: 4.38rem; 
+  /* left: 4.06rem; 
+  top: 1.88rem;  */
+  gap: 19.38rem
+}
+
