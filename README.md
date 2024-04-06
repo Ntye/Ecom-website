@@ -7,6 +7,7 @@
 - NGO BASSOM Anne Rosalie [@Ngo-Bassom-Anne-Rosa](https://www.github.com/ThierryNgoupaye)
 - Njiockou Hairbel Calvino [@NJIOCKOUHairbel](https://www.github.com/NJIOCKOUHairbel)
 - NGANTA Ange Pacific [Pacific000](https://github.com/Pacifique000)
+- NGHOGUE TAPTUE Franck Roddier [RoddierFR](https://github.com/RoddierFR)
 
 
 ## Licence
