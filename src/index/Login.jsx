@@ -16,7 +16,7 @@ const Login = () => {
       </div>
       <div className="body">
         <div className="form">
-          <label>Username</label>
+          <label>Username 1</label>
           <input type="text"/>
           <label>Password</label>
           <input type="password"/>
