@@ -6,7 +6,7 @@
 - NGOUPAYE DJIO Thierry [@ThierryNgoupaye](https://www.github.com/ThierryNgoupaye)
 - NGO BASSOM Anne Rosalie [@Ngo-Bassom-Anne-Rosa](https://www.github.com/ThierryNgoupaye)
 - Njiockou Hairbel Calvino [@NJIOCKOUHairbel](https://www.github.com/NJIOCKOUHairbel)
-- NGANTA Ange Pacific [@Pacific000](https://www.github.com/Pacific000)
+- NGANTA Ange Pacific [Pacific000](https://github.com/Pacifique000)
 
 
 ## Licence
