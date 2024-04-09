@@ -32,3 +32,35 @@
   text-align: center; /* text-center */
   color: #4b5563; /* text-gray-600 */
 }
+
+.pinks {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -2;
+  max-width: 60%;
+}
+
+.pinkl {
+  position: absolute;
+  top: 0;
+  right: -25px;
+  z-index: -2;
+  max-width: 65%;
+}
+
+.greens {
+  position: absolute;
+  top: 0;
+  left: -10px;
+  z-index: -2;
+  max-width: 30%;
+}
+
+.greenl {
+  position: absolute;
+  top: 0;
+  left: 20;
+  z-index: 0;
+  max-width: 30%;
+}
