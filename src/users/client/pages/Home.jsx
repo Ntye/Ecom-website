@@ -1,23 +1,19 @@
 // import React from 'react'
 import "../styles/Home.css"
-// import Logo from "../../../assets/greenSquiggle.svg"
-// import Logo1 from "../../../assets/pinkSquiggle.svg"
-import Navbar from "../../../users/client/components/Navbar"
 
 const Home = () => {
   return (
     <div>
-      <Navbar/>
       <div className="Header">
-
+        Header Section
       </div>
 
       <div className="Body">
-        
+        Body
       </div>
 
       <div className="Footer">
-        
+        Footer Section
       </div>
       
     </div>
