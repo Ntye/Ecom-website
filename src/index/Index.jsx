@@ -11,7 +11,7 @@ const index = () => {
         <video className="background-video" autoPlay muted loop>
           <source src={backgroundVideo} type="video/mp4" />
         </video>
-        <Link to="/home">
+        <Link to="/connexion">
           <button className='LOGIN'>LOGIN</button>
         </Link>
         
