@@ -10,13 +10,6 @@
   padding-bottom: 3rem; /* py-12 */
 }
 
-@media (min-width: 1024px) {
-  .content {
-      padding-left: 2rem; /* lg:px-8 */
-      padding-right: 2rem; /* lg:px-8 */
-  }
-}
-
 .info {
   margin-top: 1.5rem; /* mt-6 */
   font-size: 1.875rem; /* text-3xl */
@@ -43,8 +36,8 @@
 
 .pinkl {
   position: absolute;
-  top: 0;
-  right: -25px;
+  top: -5px;
+  right: 0;
   z-index: -2;
   max-width: 65%;
 }
@@ -63,4 +56,32 @@
   left: 20;
   z-index: 0;
   max-width: 30%;
+}
+.account {
+  font-weight: 500; /* font-medium */
+  color: #4f46e5; /* text-indigo-600 */
+}
+
+.account:hover {
+  color: #4338ca; /* hover:text-indigo-500 */
+}
+
+.form {
+  margin-top: 2.5rem; /* mt-10 */
+}
+
+@media (min-width: 640px) {
+  .form {
+    margin-left: auto; /* sm:mx-auto */
+    margin-right: auto; /* sm:mx-auto */
+    width: 100%; /* sm:w-full */
+    max-width: 20rem; /* sm:max-w-sm */
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+      padding-left: 2rem; /* lg:px-8 */
+      padding-right: 2rem; /* lg:px-8 */
+  }
 }
