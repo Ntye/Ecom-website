@@ -7,15 +7,17 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-install the following:
+Install the following:
 
-- Installing tailwindcss
-npm install -D tailwindcss postcss autoprefixer
+- Installing tailwindcss:
 
-npx tailwindcss init -p
+  npm install -D tailwindcss postcss autoprefixer
 
-open the tailwind.config.js created and replace content with the following:
-content: ["./src/**/*/.(js,jsx,ts,tsx)"]
+  npx tailwindcss init -p
+
+   open the tailwind.config.js created and replace content with the following:
+
+    content: ["./src/**/*/.(js,jsx,ts,tsx)"]
 
 - Installing HeroIcons
 npm install @heroicons/react
