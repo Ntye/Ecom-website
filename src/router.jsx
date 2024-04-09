@@ -14,16 +14,16 @@ const router = createBrowserRouter ([
     element: <Index/>
   },
   {
-    path: 'connexion',
+    path: '/connexion',
     element: <Connexion/>,
     children: [
       {
-        path: 'connexion',
-        element: <Login/>
-      },
-      {
         path: 'login',
         element: <Navigate to="/connexion"/>
+      },
+      {
+        path: '/connexion',
+        element: <Login/>
       },
       {
         path: 'signup',

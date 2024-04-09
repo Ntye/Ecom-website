@@ -7,13 +7,15 @@ const index = () => {
   
   return (
     <>
+      <div>
+        <Link to="/connexion">
+          <button className='LOGIN'>LOGIN</button>
+        </Link>
+      </div>
       <div className="background-video-container">
         <video className="background-video" autoPlay muted loop>
           <source src={backgroundVideo} type="video/mp4" />
         </video>
-        <Link to="/connexion">
-          <button className='LOGIN'>LOGIN</button>
-        </Link>
         
       </div>
     </>

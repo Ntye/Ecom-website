@@ -4,10 +4,10 @@ import { Outlet } from "react-router-dom"
 
 const ClientInterface = () => {
   return (
-    <div>
-      ClientInterface
+    <h1 className="text-3xl font-bold underline">
+      Hello world!
       <Outlet/>
-    </div>
+    </h1>
   )
 }
 
