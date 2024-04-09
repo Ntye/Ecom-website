@@ -8,14 +8,6 @@ import { Suspense, lazy } from "react";
 const LazyHome = lazy(() => import('./users/client/pages/Home'))
 const LazyClientInterface = lazy(() => import('./users/client/components/ClientInterface'))
 const LazySignup = lazy(() => import('./index/Signup'))
-// import Signup from "./index/Signup";
-// const DashboardPage = lazy(() => import('./views/Dashboard'));
-// (
-//   <Suspense fallback={<>Loading...</>}>
-//     <DashboardPage />
-//   </Suspense>
-// ),
-
 const router = createBrowserRouter ([
   {
     path: '/',
