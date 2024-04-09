@@ -3,7 +3,10 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import Index from "./index/Index"
 import Connexion from "./index/Connexion";
 import Login from "./index/Login";
-import Signup from "./index/Signup";
+import { Suspense, lazy } from "react";
+
+const LazySignup = lazy(() => import('./index/Signup'))
+// import Signup from "./index/Signup";
 // const DashboardPage = lazy(() => import('./views/Dashboard'));
 // (
 //   <Suspense fallback={<>Loading...</>}>
@@ -30,18 +33,14 @@ const router = createBrowserRouter ([
       },
       {
         path: 'signup',
-        element: <Signup/>
+        element: (
+          <Suspense fallback={<>Loading...</>}>
+            <LazySignup/>
+          </Suspense>
+        )
       }
     ]
   }
-  // {
-  //   path: '/ ',
-  //   element: (
-  //     <Suspense>
-  //       <DashboardPage/>
-  //     </Suspense>
-  //   )
-  // }
 ])
 
 export default router
