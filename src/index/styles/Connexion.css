@@ -125,6 +125,15 @@
   background-color: #bd6643; /* Change background color on hover */
 }
 
+.interface {
+  width: 80px;
+  height: 80px;
+}
+
+.remember {
+  margin-bottom: 10px;
+}
+
 @media (max-width: 900px) {
   .image {
     display: none;

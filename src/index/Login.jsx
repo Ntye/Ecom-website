@@ -2,9 +2,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Col, Row, Button } from 'react-bootstrap';
 import "./styles/Connexion.css"
 import { Link } from 'react-router-dom';
+import Caissiere from "../assets/Cassiere-Interface.svg"
+import Client from "../assets/Client-Interface.svg"
+import Patron from "../assets/Patron-Interface.svg"
 import Image from "../assets/log.svg"
+import { useState } from 'react';
+
+
 
 const Login = () => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionChange = (option) => {
+    setSelectedOption(option);
+  }
   return (
     <div className='centered'>
       <div className='entries'>
@@ -13,8 +24,68 @@ const Login = () => {
         <Link to="/Login" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
           <Form  style={{ width: '400px' }}>
+            <div className="image-radio-group">
+              <label className={`image-option ${selectedOption === 'option1' ? 'selected' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="option" 
+                  value="option1" 
+                  checked={selectedOption === 'option1'} 
+                  onChange={() => handleOptionChange('option1')} 
+                />
+                <img 
+                className='interface'
+                src={Client}
+                alt="/"
+                />
+              </label>
+              <label className={`image-option ${selectedOption === 'option2' ? 'selected' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="option" 
+                  value="option2" 
+                  checked={selectedOption === 'option2'} 
+                  onChange={() => handleOptionChange('option2')} 
+                />
+                <img 
+                  className='interface'
+                  src={Caissiere}
+                  alt="/"
+                />
+              </label>
+              <label className={`image-option ${selectedOption === 'option3' ? 'selected' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="option" 
+                  value="option3" 
+                  checked={selectedOption === 'option3'} 
+                  onChange={() => handleOptionChange('option3')} 
+                />
+                <img 
+                  className='interface'
+                  src={Caissiere}
+                  alt="/"
+                />
+              </label>
+              <label className={`image-option ${selectedOption === 'option4' ? 'selected' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="option" 
+                  value="option4" 
+                  checked={selectedOption === 'option4'} 
+                  onChange={() => handleOptionChange('option4')} 
+                />
+                <img 
+                  className='interface'
+                  src={Patron}
+                  alt="/"
+                />
+              </label>
+              {/* Add more options as needed */}
+            </div>
+
             <Form.Group className="user" controlId="formGridAddress1">
-              <Form.Control placeholder="Username" />
+              <Form.Control placeholder="Nom d'utilisateur" />
             </Form.Group>
 
             <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
@@ -23,55 +94,22 @@ const Login = () => {
             <Form.Group as={Col} controlId="formGridPassword">
                 <Form.Control id="pwd" name="pwd" type="password" placeholder="Password" />
               </Form.Group>
+            </Row>
 
-              <Form.Group as={Col} controlId="formGridConPassword">
-                <Form.Control id="confirmation-pwd" name="confirmation-pwd" type="password" placeholder="Confirm Password" />
+            <Row>
+              <Form.Group as={Col} controlId="formGridSexe">
+                <Form.Check 
+                  type="checkbox" 
+                  id="exampleCheckbox"
+                  label=" Se souvenir de mes identifiants"
+                  className='remember'
+                />
               </Form.Group>
             </Row>
 
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control id="nom" name="nom" type="text" placeholder="Numero" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Select defaultValue="Ville">
-                  <option disabled>Ville</option>
-                  <option>...</option>
-                </Form.Select>
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control id="date" name="date" type="text" placeholder="Date de Naissance" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Select defaultValue="Sexe">
-                  <option disabled>Sexe</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </Form.Select>
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-              <span className='sub-text'>Nature du compte</span>
-              </Form.Group>
-              
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Select defaultValue="Client">
-                  <option>Client</option>
-                  <option>Caisiere</option>
-                  <option>Magasinier</option>
-                </Form.Select>
-              </Form.Group>
-            </Row>
 
           <Button className='custom-button' variant="secondary" type="submit">
-            Inscrivez Vous
+            Connectez Vous
           </Button>
           </Form>
           <img className='image' src={Image} alt="/"/>

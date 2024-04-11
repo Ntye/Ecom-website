@@ -18,15 +18,6 @@ const Signup = () => {
         <Link to="/signup" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
           <Form  style={{ width: '400px' }}>
-            {/* <Row>
-              <Form.Group as={Col} controlId="formGridSexe">
-                <Form.Check 
-                  type="checkbox" 
-                  id="exampleCheckbox"
-                  label="Employee"
-                />
-              </Form.Group>
-            </Row> */}
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Control id="nom" name="nom" type="text" placeholder="Nom" />
@@ -38,7 +29,7 @@ const Signup = () => {
             </Row>
 
             <Form.Group className="user" controlId="formGridAddress1">
-              <Form.Control placeholder="Username" />
+              <Form.Control placeholder="Nom d'utilisateur" />
             </Form.Group>
 
             <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
