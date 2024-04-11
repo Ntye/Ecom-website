@@ -14,9 +14,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
-    "@tailwindcss/forms": "^0.5.7",
-    "bootstrap": "^5.3.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "reacticons": "^0.0.1"

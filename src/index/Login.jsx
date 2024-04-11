@@ -1,114 +1,84 @@
-import { LockClosedIcon } from '@heroicons/react/24/solid'
-import './styles/Connexion.css'
-import { Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form, Col, Row, Button } from 'react-bootstrap';
+import "./styles/Connexion.css"
+import { Link } from 'react-router-dom';
+import Image from "../assets/log.svg"
 
-export default function Login() {
+const Login = () => {
   return (
-    <div>
-      <h2 className="info">
-          Sign in to your account
-      </h2>
-      <p className="par">
-        Or{" "}
-        <Link to="/connexion/signup" className="account">
-          Sign Up for Free!
-        </Link> 
-      </p>
+    <div className='centered'>
+      <div className='entries'>
+        <span className='intro-word'>CONNECTEZ VOUS SUR <span className='store'>AllStore</span></span>
+        <div className='note'><span className='sub-text'>Si vous n’avez pas un compte existant cliquez</span> {'  '} 
+        <Link to="/Login" className='link-deco'>ici</Link></div>
+        <div className='entries-pic'>
+          <Form  style={{ width: '400px' }}>
+            <Form.Group className="user" controlId="formGridAddress1">
+              <Form.Control placeholder="Username" />
+            </Form.Group>
 
-      <div className="form">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <input
-              id="remember-me"
-              name="remember-me"
-              type="checkbox"
-              className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-            />
-            <label
-              htmlFor="remember-me"
-              className="block ml-2 text-sm text-gray-900"
-            >
-              Employee
-            </label>
-          </div>
-        </div>
-        <form className="mt-8 space-y-6" action="#" method="POST">
-          <input type="hidden" name="remember" defaultValue="true" />
-          <div className="-space-y-px rounded-md shadow-sm">
-            <div>
-              <label htmlFor="email-address" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Email address"
-              />
-            </div>
-            <div>
-              <label htmlFor="nom" className="sr-only">
-                Nom
-              </label>
-              <input
-                id="nom"
-                name="nom"
-                type="text"
-                autoComplete="nom"
-                required
-                className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Nom"
-              />
-            </div>
-            <div>
-            <label htmlFor="password" className="sr-only">
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete="current-password"
-              required
-              className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-              placeholder="Password"
-            />
-            </div>
-          </div>
+            <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
+            
+            <Row className="pass">
+            <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Control id="pwd" name="pwd" type="password" placeholder="Password" />
+              </Form.Group>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <input
-              id="remember-me"
-              name="remember-me"
-              type="checkbox"
-              className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
-            />
-            <label
-              htmlFor="remember-me"
-              className="block ml-2 text-sm text-gray-900"
-            >
-              Remember me
-            </label>
-          </div>
-        </div>
+              <Form.Group as={Col} controlId="formGridConPassword">
+                <Form.Control id="confirmation-pwd" name="confirmation-pwd" type="password" placeholder="Confirm Password" />
+              </Form.Group>
+            </Row>
 
-        <div>
-          <button
-            type="submit"
-            className="relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md group hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus-ring-offset-2"
-          >
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-              <LockClosedIcon className="w-5 h-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true"/>
-            </span>
-            Sign in
-          </button>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Control id="nom" name="nom" type="text" placeholder="Numero" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Select defaultValue="Ville">
+                  <option disabled>Ville</option>
+                  <option>...</option>
+                </Form.Select>
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Control id="date" name="date" type="text" placeholder="Date de Naissance" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Select defaultValue="Sexe">
+                  <option disabled>Sexe</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </Form.Select>
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridEmail">
+              <span className='sub-text'>Nature du compte</span>
+              </Form.Group>
+              
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Select defaultValue="Client">
+                  <option>Client</option>
+                  <option>Caisiere</option>
+                  <option>Magasinier</option>
+                </Form.Select>
+              </Form.Group>
+            </Row>
+
+          <Button className='custom-button' variant="secondary" type="submit">
+            Inscrivez Vous
+          </Button>
+          </Form>
+          <img className='image' src={Image} alt="/"/>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
   )
 }
+
+export default Login

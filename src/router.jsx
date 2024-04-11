@@ -1,13 +1,16 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import Index from "./index/Index"
-import Connexion from "./index/Connexion";
-import Login from "./index/Login";
 import { Suspense, lazy } from "react";
 
-const LazyHome = lazy(() => import('./users/client/pages/Home'))
-const LazyClientInterface = lazy(() => import('./users/client/components/ClientInterface'))
+const LazyNotFound = lazy(() => import('./index/NotFound'))
+const LazyConnex = lazy(() => import('./index/Connexion'))
+// const LazyHome = lazy(() => import('./users/client/pages/Home'))
+// const LazyClientInterface = lazy(() => import('./users/client/components/ClientInterface'))
 const LazySignup = lazy(() => import('./index/Signup'))
+const LazyLogin = lazy(() => import('./index/Login'))
+// const LazySign = lazy(() => import('./index/Sign'))
+// const LazyYo = lazy(() => import('./index/Yo'))
 const router = createBrowserRouter ([
   {
     path: '/',
@@ -15,15 +18,27 @@ const router = createBrowserRouter ([
   },
   {
     path: '/connexion',
-    element: <Connexion/>,
-    children: [
-      {
-        path: 'login',
-        element: <Navigate to="/connexion"/>
-      },
+    element: (
+      <Suspense fallback={<>Loading...</>}>
+        <LazyConnex/>
+      </Suspense>
+    ),
+    children:[
       {
         path: '/connexion',
-        element: <Login/>
+        element: (
+          <Suspense fallback={<>Loading...</>}>
+            <LazyLogin/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'login',
+        element: (
+          <Suspense fallback={<>Loading...</>}>
+            <Navigate to="/connexion"/>
+          </Suspense>
+        )
       },
       {
         path: 'signup',
@@ -36,23 +51,9 @@ const router = createBrowserRouter ([
     ]
   },
   {
-    path: 'client',
-    element: <LazyClientInterface/>,
-    children:[
-      {
-        path: 'client',
-        element: <LazyHome/>
-      },
-      {
-        path: 'home',
-        element: (
-          <Suspense fallback={<>Loading...</>}>
-            <Navigate to="client"/>
-          </Suspense>
-        )
-      }
-    ]
-  }
+    path: '*',
+    element: <LazyNotFound/>
+  },
 ])
 
 export default router

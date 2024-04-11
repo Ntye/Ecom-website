@@ -1,41 +1,28 @@
-import { Outlet } from "react-router-dom"
-import child from "../assets/child.svg"
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import child from "../assets/child.svg"
 import "./styles/Connexion.css"
-// import Man from "../assets/Man.jpg"
-import PinkSquiggle from "../assets/pinkSquiggle.svg"
-import GreenSquiggle from "../assets/greenSquiggle.svg"
-import PinkLine from "../assets/pinkline.svg"
-import GreenLine from "../assets/greenline.svg"
+// import BackColour from "../assets/back-color.png"
+import TopImage from "../assets/Con-bot.svg"
+import BotImage from "../assets/Con-top.svg"
+import { Outlet } from 'react-router-dom';
+import Logo from "../assets/logo.svg"
+// import GreenLine from "../assets/greenline.svg"
 
 export default function Connexion() {
   return (
-    
-    <div>
-      <img className="pinks" 
-        src={PinkSquiggle}
-        alt="Your Company"
-      />
-      <img className="greens" 
-        src={GreenSquiggle}
-        alt="Your Company"
-      />
-      <img className="greenl" 
-        src={GreenLine}
-        alt="Your Company"
-      />
-      <img className="pinkl" 
-        src={PinkLine}
-        alt="Your Company"
-      />
-      <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="w-auto h-10 mx-auto" 
-            src={child}
-            alt="Your Company"
-          />
-        </div>        
-        <Outlet/>
+    <div className="connexion-page">
+      <img className="top-image" src={TopImage} alt="/"/>
+
+      <div className="centered">
+        <img 
+          className='logo'
+          src={Logo}
+          alt="/"
+        />
       </div>
+      <Outlet/>
+      
+      <img className="bot-image" src={BotImage} alt="/" />
     </div>
   )
 }
