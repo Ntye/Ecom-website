@@ -9,15 +9,10 @@ Currently, two official plugins are available:
 
 Install the following:
 
-- Installing tailwindcss:
+- Installing react-bootstrap:
 
-  npm install -D tailwindcss postcss autoprefixer
+  npm install react-bootstrap bootstrap
 
-  npx tailwindcss init -p
-
-   open the tailwind.config.js created and replace content with the following:
-
-    content: ["./src/**/*/.(js,jsx,ts,tsx)"]
-
-- Installing HeroIcons
-npm install @heroicons/react
+- Installing react-icon:
+  
+  npm install react-icon

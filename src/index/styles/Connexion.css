@@ -134,6 +134,10 @@
   margin-bottom: 10px;
 }
 
+.react-datepicker {
+  font-family: Arial, sans-serif;
+}
+
 @media (max-width: 900px) {
   .image {
     display: none;

@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Col, Row, Button } from 'react-bootstrap';
+import "react-datepicker/dist/react-datepicker.css"
 import "./styles/Connexion.css"
 import { Link } from 'react-router-dom';
 import Image from "../assets/log.svg"
@@ -52,10 +53,11 @@ const Signup = () => {
               </Form.Group>
             </Row>
 
+            <span className='sub-text text-bel' >Date de Naissance </span>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control id="date" name="date" type="text" placeholder="Naissance (dd-mm-yy)" />
-              </Form.Group>
+            <Form.Group as={Col} controlId="formGridDate">
+              <Form.Control id="date" name="date" type="date" />
+            </Form.Group>
 
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Select defaultValue="Sexe">
