@@ -10,7 +10,7 @@ const Signup = () => {
       <div className='entries'>
         <span className='intro-word'>CREEZ VOTRE COMPTE SUR <span className='store'>AllStore</span></span>
         <div className='note'><span className='sub-text'>Si vous avez déjà un compte existant cliquez</span> {'  '} 
-        <Link to="/signup" className='link-deco'>ici</Link></div>
+        <Link to="/connexion" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
           <Form  style={{ width: '400px' }}>
             <Row className="mb-3">

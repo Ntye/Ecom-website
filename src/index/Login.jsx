@@ -21,7 +21,7 @@ const Login = () => {
       <div className='entries'>
         <span className='intro-word'>CONNECTEZ VOUS SUR <span className='store'>AllStore</span></span>
         <div className='note'><span className='sub-text'>Si vous n’avez pas un compte existant cliquez</span> {'  '} 
-        <Link to="/Login" className='link-deco'>ici</Link></div>
+        <Link to="signup" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
           <Form  style={{ width: '400px' }}>
             <div className="image-radio-group">
