@@ -1,4 +1,4 @@
-nav {
+/* nav {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,7 +22,6 @@ nav {
   border-radius: 5px;
   color: bisque;
   border-color: bisque;
-  /* border: none; */
 }
 .search-icon {
   color: #d4adad;
@@ -57,4 +56,5 @@ nav {
   color: inherit; 
   font-weight: normal;
   text-decoration: none;
-}
+} */
+

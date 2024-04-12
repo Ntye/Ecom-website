@@ -1,0 +1,7 @@
+.loading {
+  flex-direction: row;
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #bd6643;
+  font-size: 90px;
+}
