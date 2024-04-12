@@ -59,7 +59,7 @@ const Signup = () => {
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control id="date" name="date" type="text" placeholder="Date de Naissance" />
+                <Form.Control id="date" name="date" type="text" placeholder="Naissance (dd-mm-yy)" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridEmail">
@@ -81,6 +81,7 @@ const Signup = () => {
                   <option>Client</option>
                   <option>Caisiere</option>
                   <option>Magasinier</option>
+                  <option>Patron</option>
                 </Form.Select>
               </Form.Group>
             </Row>

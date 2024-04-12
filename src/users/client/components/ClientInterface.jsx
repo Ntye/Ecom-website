@@ -1,20 +1,18 @@
 // import { Outlet } from "react-router-dom"
-// import PinkSquiggle from "../../../assets/pinkSquiggle.svg"
-// import GreenSquiggle from "../../../assets/greenSquiggle.svg"
-// import PinkLine from "../../../assets/pinkline.svg"
-// import GreenLine from "../../../assets/greenline.svg"
 // import login from "../../../assets/log.svg"
 // import Logo from "../../../assets/logo.svg"
 // import "./styles/Connex.css"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import '../styles/Client.css'
+import { Outlet } from "react-router-dom"
 
 const ClientInterface = () => {
   return (
-    <div className="connexion-page">
-      <Navbar/>
+    <div>
       
+      <Navbar/>
+      <Outlet/>
       <Footer/>
     </div>
   )
