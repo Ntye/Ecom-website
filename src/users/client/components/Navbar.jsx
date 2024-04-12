@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom/"
+import { Link, NavLink } from "react-router-dom/"
 import * as Fa from 'react-icons/fa'
 // import { Outlet } from "react-router-dom"
 // import PinkSquiggle from "../../../assets/pinkSquiggle.svg"
 // import GreenSquiggle from "../../../assets/greenSquiggle.svg"
 // import PinkLine from "../../../assets/pinkline.svg"
 // import GreenLine from "../../../assets/greenline.svg"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../../../assets/logo.svg'
 import "../styles/Navbar.css"
 
@@ -20,9 +21,9 @@ const Navbar = () => {
         <img className="logo" src={Logo} alt="/"/>
         <div className="search-bar">
           <input className="search-input" type="text" placeholder="Search..."/>
-          <NavLink to='search'>
+          <Link to='/search'>
             <button type="submit" className="search-button"><Fa.FaSearch className='search-icon'/></button>
-          </NavLink>
+          </Link>
         </div>
         <div className="pages">
           <NavLink to='acceuil' className={({ isActive }) =>

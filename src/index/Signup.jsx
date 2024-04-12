@@ -1,12 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Col, Row, Button } from 'react-bootstrap';
-// import child from "../assets/child.svg"
 import "./styles/Connexion.css"
-// import BackColour from "../assets/back-color.png"
-// import TopImage from "../assets/Con-bot.svg"
-// import BotImage from "../assets/Con-top.svg"
 import { Link } from 'react-router-dom';
-// import Logo from "../assets/logo.svg"
 import Image from "../assets/log.svg"
 
 const Signup = () => {
