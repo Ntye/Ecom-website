@@ -5,12 +5,6 @@
   z-index: 0;
 }
 
-.logo {
-  margin-left: 25px;
-  margin-right: 300px;
-  height: 45px;
-}
-
 .search-input {
   width: 250px;
   border-color: #d4adad;
@@ -58,3 +52,13 @@
   text-decoration: none;
 } */
 
+.logo {
+  margin-left: 25px;
+  margin-right: 300px;
+}
+
+.page {
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}

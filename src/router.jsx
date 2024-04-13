@@ -1,8 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import Index from "./index/Index"
 import { Suspense, lazy } from "react";
-import Loading from "./index/Loading/Loading";
+import Spinner from 'react-bootstrap/Spinner';
+
+import Index from "./index/Index"
+// import Loading from "./index/Loading/Loading";
 
 
 const LazyAcceuil = lazy(() => import('./users/client/pages/Acceuil'))
@@ -24,7 +26,7 @@ const router = createBrowserRouter ([
   {
     path: '/connexion',
     element: (
-      <Suspense fallback={<><Loading/></>}>
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
         <LazyConnexion/>
       </Suspense>
     ),
@@ -32,7 +34,7 @@ const router = createBrowserRouter ([
       {
         path: '/connexion',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyLogin/>
           </Suspense>
         )
@@ -40,7 +42,7 @@ const router = createBrowserRouter ([
       {
         path: 'login',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <Navigate to="/connexion"/>
           </Suspense>
         )
@@ -48,7 +50,7 @@ const router = createBrowserRouter ([
       {
         path: 'signup',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazySignup/>
           </Suspense>
         )
@@ -58,7 +60,7 @@ const router = createBrowserRouter ([
   {
     path: '*',
     element: (
-      <Suspense fallback={<><Loading/></>}>
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
         <LazyNotFound/>
       </Suspense>
     )
@@ -66,7 +68,7 @@ const router = createBrowserRouter ([
   {
     path: '/client',
     element: (
-      <Suspense fallback={<><Loading/></>}>
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
         <LazyClient/>
       </Suspense>
     ),
@@ -74,7 +76,7 @@ const router = createBrowserRouter ([
       {
         path: 'acceuil',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyAcceuil/>
           </Suspense>
         )
@@ -82,7 +84,7 @@ const router = createBrowserRouter ([
       {
         path: '/client',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <Navigate to="acceuil"/>
           </Suspense>
     ),
@@ -90,7 +92,7 @@ const router = createBrowserRouter ([
       {
         path: 'panier',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyPanier/>
           </Suspense>
         )
@@ -98,7 +100,7 @@ const router = createBrowserRouter ([
       {
         path: 'compte',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyCompte/>
           </Suspense>
         )
@@ -106,7 +108,7 @@ const router = createBrowserRouter ([
       {
         path: 'search',
         element: (
-          <Suspense fallback={<><Loading/></>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazySearch/>
           </Suspense>
         )
