@@ -1,12 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Col, Row, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Form, Col, Row, Button } from 'react-bootstrap'
 import "./styles/Connexion.css"
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import Caissiere from "../assets/Cassiere-Interface.svg"
 import Client from "../assets/Client-Interface.svg"
 import Patron from "../assets/Patron-Interface.svg"
 import Image from "../assets/log.svg"
-import { useState } from 'react';
+import { useState } from 'react'
+import axios from 'axios'
 
 
 
@@ -16,6 +17,31 @@ const Login = () => {
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   }
+
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('http://localhost/login.php', formData);
+      console.log('Response from PHP:', response.data);
+      // Handle response accordingly
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error accordingly
+    }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
   return (
     <div className='centered'>
       <div className='entries'>
@@ -23,7 +49,7 @@ const Login = () => {
         <div className='note'><span className='sub-text'>Si vous n’avez pas un compte existant cliquez</span> {'  '} 
         <Link to="signup" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
-          <Form  style={{ width: '400px' }}>
+          <Form  style={{ width: '400px' }} onSubmit={handleSubmit}>
             <div className="image-radio-group">
               <label className={`image-option ${selectedOption === 'option1' ? 'selected' : ''}`}>
                 <input 
@@ -85,7 +111,11 @@ const Login = () => {
             </div>
 
             <Form.Group className="user" controlId="formGridAddress1">
-              <Form.Control placeholder="Nom d'utilisateur" />
+              <Form.Control 
+                value={formData.username} 
+                onChange={handleInputChange} 
+                placeholder="Nom d'utilisateur" 
+              />
             </Form.Group>
 
             <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
