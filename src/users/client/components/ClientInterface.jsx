@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from "./NavbarComp"
+import NavbarComp from "./NavbarComp"
 import '../styles/Client.css'
 
 import { Outlet } from "react-router-dom"
@@ -7,7 +7,7 @@ import { Outlet } from "react-router-dom"
 const ClientInterface = () => {
   return (
     <div>
-      <Navbar/>
+      <NavbarComp/>
       <Outlet/>
     </div>
   )

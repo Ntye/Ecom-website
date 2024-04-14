@@ -7,26 +7,23 @@ import Client from "../assets/Client-Interface.svg"
 import Patron from "../assets/Patron-Interface.svg"
 import Image from "../assets/log.svg"
 import { useState } from 'react'
-import axios from 'axios'
-
+import axios from '../api/axios'
 
 
 const Login = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [user, setUser] = useState(null);
+  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState(null);
 
   const handleOptionChange = (option) => {
-    setSelectedOption(option);
+    setUser(option);
   }
-
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
-
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
-      const response = await axios.post('http://localhost/login.php', formData);
+      const response = await axios.post('http://localhost/login.php', {job: user, username, password } )
       console.log('Response from PHP:', response.data);
       // Handle response accordingly
     } catch (error) {
@@ -35,13 +32,6 @@ const Login = () => {
     }
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
   return (
     <div className='centered'>
       <div className='entries'>
@@ -49,15 +39,15 @@ const Login = () => {
         <div className='note'><span className='sub-text'>Si vous n’avez pas un compte existant cliquez</span> {'  '} 
         <Link to="signup" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
-          <Form  style={{ width: '400px' }} onSubmit={handleSubmit}>
+          <Form  style={{ width: '400px' }} onSubmit={handleSubmit} method='POST'>
             <div className="image-radio-group">
-              <label className={`image-option ${selectedOption === 'option1' ? 'selected' : ''}`}>
+              <label className={`image-option ${user === 'client' ? 'selected' : ''}`}>
                 <input 
                   type="radio" 
                   name="option" 
-                  value="option1" 
-                  checked={selectedOption === 'option1'} 
-                  onChange={() => handleOptionChange('option1')} 
+                  value="client" 
+                  checked={user === 'client'} 
+                  onChange={() => handleOptionChange('client')} 
                 />
                 <img 
                 className='interface'
@@ -65,13 +55,13 @@ const Login = () => {
                 alt="/"
                 />
               </label>
-              <label className={`image-option ${selectedOption === 'option2' ? 'selected' : ''}`}>
+              <label className={`image-option ${user === 'caissiere' ? 'selected' : ''}`}>
                 <input 
                   type="radio" 
                   name="option" 
-                  value="option2" 
-                  checked={selectedOption === 'option2'} 
-                  onChange={() => handleOptionChange('option2')} 
+                  value="caissiere" 
+                  checked={user === 'caissiere'} 
+                  onChange={() => handleOptionChange('caissiere')} 
                 />
                 <img 
                   className='interface'
@@ -79,13 +69,13 @@ const Login = () => {
                   alt="/"
                 />
               </label>
-              <label className={`image-option ${selectedOption === 'option3' ? 'selected' : ''}`}>
+              <label className={`image-option ${user === 'magasinier' ? 'selected' : ''}`}>
                 <input 
                   type="radio" 
                   name="option" 
-                  value="option3" 
-                  checked={selectedOption === 'option3'} 
-                  onChange={() => handleOptionChange('option3')} 
+                  value="magasinier" 
+                  checked={user === 'magasinier'} 
+                  onChange={() => handleOptionChange('magasinier')} 
                 />
                 <img 
                   className='interface'
@@ -93,13 +83,13 @@ const Login = () => {
                   alt="/"
                 />
               </label>
-              <label className={`image-option ${selectedOption === 'option4' ? 'selected' : ''}`}>
+              <label className={`image-option ${user === 'patron' ? 'selected' : ''}`}>
                 <input 
                   type="radio" 
                   name="option" 
-                  value="option4" 
-                  checked={selectedOption === 'option4'} 
-                  onChange={() => handleOptionChange('option4')} 
+                  value="patron" 
+                  checked={user === 'patron'} 
+                  onChange={() => handleOptionChange('patron')} 
                 />
                 <img 
                   className='interface'
@@ -107,13 +97,14 @@ const Login = () => {
                   alt="/"
                 />
               </label>
-              {/* Add more options as needed */}
             </div>
 
             <Form.Group className="user" controlId="formGridAddress1">
               <Form.Control 
-                value={formData.username} 
-                onChange={handleInputChange} 
+                value={username} 
+                name='username'
+                type='text'
+                onChange={(e) => setUsername(e.target.value)} 
                 placeholder="Nom d'utilisateur" 
               />
             </Form.Group>
@@ -121,13 +112,19 @@ const Login = () => {
             <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
             
             <Row className="pass">
-            <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Control id="pwd" name="pwd" type="password" placeholder="Password" />
+              <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Control 
+                  value={password}
+                  name="password" 
+                  type="password" 
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  />
               </Form.Group>
             </Row>
 
             <Row>
-              <Form.Group as={Col} controlId="formGridSexe">
+              <Form.Group as={Col} controlId="formRemember">
                 <Form.Check 
                   type="checkbox" 
                   id="exampleCheckbox"
@@ -137,10 +134,9 @@ const Login = () => {
               </Form.Group>
             </Row>
 
-
-          <Button className='custom-button' variant="secondary" type="submit">
-            Connectez Vous
-          </Button>
+            <Button className='custom-button' variant="secondary" type="submit">
+              Connectez Vous
+            </Button>
           </Form>
           <img className='image' src={Image} alt="/"/>
         </div>
