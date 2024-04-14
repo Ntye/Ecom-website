@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Form, Col, Row, Button } from 'react-bootstrap'
 import "./styles/Connexion.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Caissiere from "../assets/Cassiere-Interface.svg"
 import Client from "../assets/Client-Interface.svg"
 import Patron from "../assets/Patron-Interface.svg"
@@ -14,6 +14,7 @@ const Login = () => {
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const navigate = useNavigate()
 
   const handleOptionChange = (option) => {
     setUser(option);
@@ -21,11 +22,12 @@ const Login = () => {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
     try {
       const response = await axios.post('http://localhost/login.php', {job: user, username, password } )
       console.log('Response from PHP:', response.data);
       // Handle response accordingly
+      navigate("/client")
     } catch (error) {
       console.error('Error:', error);
       // Handle error accordingly
