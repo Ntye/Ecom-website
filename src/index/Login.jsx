@@ -30,6 +30,7 @@ const Login = () => {
       navigate("/client")
     } catch (error) {
       console.error('Error:', error);
+      navigate("/connexion")
       // Handle error accordingly
     }
   };
