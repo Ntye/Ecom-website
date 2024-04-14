@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Form, Col, Row, Button } from 'react-bootstrap'
+import { Form, Col, Button } from 'react-bootstrap'
 import "./styles/Connexion.css"
 import { Link, useNavigate } from 'react-router-dom'
 import Caissiere from "../assets/Cassiere-Interface.svg"
@@ -17,23 +17,23 @@ const Login = () => {
   const navigate = useNavigate()
 
   const handleOptionChange = (option) => {
-    setUser(option);
+    setUser(option)
   }
   
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     
     try {
       const response = await axios.post('http://localhost/login.php', {job: user, username, password } )
-      console.log('Response from PHP:', response.data);
+      console.log('Response from PHP:', response.data)
       // Handle response accordingly
       navigate("/client")
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error:', error)
       navigate("/connexion")
       // Handle error accordingly
     }
-  };
+  }
 
   return (
     <div className='centered'>
@@ -92,7 +92,7 @@ const Login = () => {
                   name="option" 
                   value="patron" 
                   checked={user === 'patron'} 
-                  onChange={() => handleOptionChange('patron')} 
+                  onChange={(() => handleOptionChange('patron'))} 
                 />
                 <img 
                   className='interface'
@@ -102,7 +102,7 @@ const Login = () => {
               </label>
             </div>
 
-            <Form.Group className="user" controlId="formGridAddress1">
+            <Form.Group className="user" controlId="username">
               <Form.Control 
                 value={username} 
                 name='username'
@@ -114,28 +114,24 @@ const Login = () => {
 
             <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
             
-            <Row className="pass">
-              <Form.Group as={Col} controlId="formGridPassword">
-                <Form.Control 
-                  value={password}
-                  name="password" 
-                  type="password" 
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Password"
-                  />
-              </Form.Group>
-            </Row>
-
-            <Row>
-              <Form.Group as={Col} controlId="formRemember">
-                <Form.Check 
-                  type="checkbox" 
-                  id="exampleCheckbox"
-                  label=" Se souvenir de mes identifiants"
-                  className='remember'
+            <Form.Group as={Col} controlId="password">
+              <Form.Control 
+                value={password}
+                name="password" 
+                type="password" 
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Mot de Passe"
                 />
-              </Form.Group>
-            </Row>
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="Remember">
+              <Form.Check 
+                type="checkbox" 
+                id="exampleCheckbox"
+                label=" Se souvenir de mes identifiants"
+                className='remember'
+              />
+            </Form.Group>
 
             <Button className='custom-button' variant="secondary" type="submit">
               Connectez Vous
