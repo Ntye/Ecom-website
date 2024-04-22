@@ -140,24 +140,9 @@ const Signup = () => {
               </Form.Group>
             </Row>
 
-            {/* <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <span className='sub-text'>Nature du compte</span>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="Client">
-                <Form.Select>
-                  <option>Client</option>
-                  <option>Caisiere</option>
-                  <option>Magasinier</option>
-                  <option>Patron</option>
-                </Form.Select>
-              </Form.Group>
-            </Row> */}
-
             <Button className='custom-button' variant="secondary" type="submit" value="SEND">
               Inscrivez Vous
-            </Button>
+            </Button><br/><br/>
             <span className='sub-text'>Vous etes un employer? </span> {'  '} 
             <Link to="/connexion/signup-employee" className='link-deco'>Cliquer ici!</Link>
           </Form>

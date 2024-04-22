@@ -4,11 +4,17 @@ import "react-datepicker/dist/react-datepicker.css"
 import "./styles/Connexion.css"
 import { Link } from 'react-router-dom';
 import Image from "../assets/log.svg"
+import Caissiere from '../assets/Cassiere-Interface.svg'
+import Patron from '../assets/Patron-Interface.svg'
 import swal from 'sweetalert'
+import { useState } from 'react';
 // import axios from 'axios';
 const SignupEmp = () => {
-  const sexe = 'Sexe'
-  const ville = 'Ville'
+
+  const [user, setUser] = useState()
+  const handleOptionChange = (option) => {
+    setUser(option)
+  }
 
   const handleSubmit =  (e) => {
       e.preventDefault();
@@ -77,31 +83,76 @@ const SignupEmp = () => {
   return (
     <div className='centered'>
       <div className='entries'>
-        <span className='intro-word'>CREEZ VOTRE COMPTE SUR <span className='store'>AllStore</span></span>
+        <span className='intro-word'>CREEZ VOTRE COMPTE EMPLOYEE SUR <span className='store'>AllStore</span></span>
         <div className='note'><span className='sub-text'>Si vous avez déjà un compte existant cliquez</span> {'  '}
-          <Link to="/connexion" className='link-deco'>ici</Link></div>
+          <Link to="/connexion/login-employee" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
 
           <Form style={{ width: '400px' }} onSubmit={handleSubmit} method='POST'>
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="Name">
-                <Form.Control name="nom" type="text" placeholder="Nom"/>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="Surname">
-                <Form.Control name="prenom" type="text" placeholder="Prenom"/>
-              </Form.Group>
-            </Row>
+          <div className="image-radio-group">
+              <label className={`image-option ${user === 'caissiere' ? 'selected' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="option" 
+                  value="caissiere" 
+                  checked={user === 'caissiere'} 
+                  onChange={() => handleOptionChange('caissiere')} 
+                />
+                <img 
+                  className='interface'
+                  src={Caissiere}
+                  alt="/"
+                />
+              </label>
+              <label className={`image-option ${user === 'magasinier' ? 'selected' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="option" 
+                  value="magasinier" 
+                  checked={user === 'magasinier'} 
+                  onChange={() => handleOptionChange('magasinier')} 
+                />
+                <img 
+                  className='interface'
+                  src={Caissiere}
+                  alt="/"
+                />
+              </label>
+              <label className={`image-option ${user === 'patron' ? 'selected' : ''}`}>
+                <input 
+                  type="radio" 
+                  name="option" 
+                  value="patron" 
+                  checked={user === 'patron'} 
+                  onChange={() => handleOptionChange('patron')} 
+                />
+                <img 
+                  className='interface'
+                  src={Patron}
+                  alt="/"
+                />
+              </label>
+            </div>
 
 
             <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
-            <Form.Group className="user" controlId="username">
+            <Row className='mb-3'>
+              <Form.Group className="user" controlId="username">
               <Form.Control 
                 name='username'
                 type='text'
                 placeholder="Nom d'utilisateur" 
               />
-            </Form.Group>
+          </Form.Group>
+            </Row>
+            
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="Numero">
+                <Form.Control name="numTel" type="text" placeholder="Numero"/>
+              </Form.Group>
+            </Row>
+
             <Row className="pass">
               <Form.Group as={Col} controlId="Pwd">
                 <Form.Control name="pwd" type="password" placeholder="Password"/>
@@ -111,56 +162,13 @@ const SignupEmp = () => {
                 <Form.Control name="confpwd" type="password" placeholder="Confirm Password"/>
               </Form.Group>
             </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="Numero">
-                <Form.Control name="numTel" type="text" placeholder="Numero"/>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="Ville">
-                <Form.Select name="ville" defaultValue={ville}>
-                  <option value={ville} type='text'>Ville</option>
-                  <option value='....' type='text'>...</option>
-                </Form.Select>
-              </Form.Group>
-            </Row>
-
-            <span className='sub-text text-bel' >Date de Naissance </span>
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="Date">
-                <Form.Control name="dateNaissance" type="date" placeholder="Date de naissance"/>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="Sexe">
-                <Form.Select name='sexe'>
-                  <option value={sexe}>Sexe</option>
-                  <option value ="M" type='text'> Homme </option>
-                  <option value ="F" type='text'>Femme</option>
-                </Form.Select>
-              </Form.Group>
-            </Row>
-
-            {/* <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <span className='sub-text'>Nature du compte</span>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="Client">
-                <Form.Select>
-                  <option>Client</option>
-                  <option>Caisiere</option>
-                  <option>Magasinier</option>
-                  <option>Patron</option>
-                </Form.Select>
-              </Form.Group>
-            </Row> */}
-
+            
             <Button className='custom-button' variant="secondary" type="submit" value="SEND">
               Inscrivez Vous
-            </Button>
+            </Button><br/><br/>
+            <div className='note'><span className='sub-text'>Vous etes un client? </span> {'  '} 
+            <Link to="/connexion/signup" className='link-deco'>Cliquer ici!</Link></div>
           </Form>
-          <div className='note'><span className='sub-text'>Vous etes un client? </span> {'  '} 
-          <Link to="/connexion/signup" className='link-deco'>Cliquer ici!</Link></div>
             <img className='image' src={Image} alt="/" />
           </div>
       </div>

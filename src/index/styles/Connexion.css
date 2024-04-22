@@ -33,7 +33,7 @@
   font-variation-settings: "wdth" 100;
 }
 .note {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.1rem;
 }
 
 .link-deco {font-family: "Anybody", sans-serif;
@@ -92,6 +92,10 @@
   width: 300px;
   height: 300px;
   transition: width 0.5s, height 0.5s; /* Add a transition effect for width and height changes */
+}
+
+.image-radio-group {
+  margin-bottom: 0.75rem;
 }
 
 .top-image {
