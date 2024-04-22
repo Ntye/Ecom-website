@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Image from "../assets/log.svg"
 import swal from 'sweetalert'
 // import axios from 'axios';
-const Signup = () => {
+const SignupEmp = () => {
   const sexe = 'Sexe'
   const ville = 'Ville'
 
@@ -159,8 +159,8 @@ const Signup = () => {
               Inscrivez Vous
             </Button>
           </Form>
-          <div className='note'><span className='sub-text'>Vous etes un employer? </span> {'  '} 
-          <Link to="signup-employee" className='link-deco'>Cliquer ici!</Link></div>
+          <div className='note'><span className='sub-text'>Vous etes un client? </span> {'  '} 
+          <Link to="signup" className='link-deco'>Cliquer ici!</Link></div>
             <img className='image' src={Image} alt="/" />
           </div>
       </div>
@@ -168,4 +168,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignupEmp

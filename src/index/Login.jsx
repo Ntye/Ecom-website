@@ -1,38 +1,23 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Form, Col, Button } from 'react-bootstrap'
 import "./styles/Connexion.css"
-import { Link, useNavigate } from 'react-router-dom'
-import Caissiere from "../assets/Cassiere-Interface.svg"
-import Client from "../assets/Client-Interface.svg"
-import Patron from "../assets/Patron-Interface.svg"
+import { Link } from 'react-router-dom'
 import Image from "../assets/log.svg"
-import { useState } from 'react'
-import axios from '../api/axios'
+import { useRef } from 'react'
+// import axios from '../api/axios'
 
 
-const Login = () => {
-  const [user, setUser] = useState(null);
-  const [username, setUsername] = useState(null);
-  const [password, setPassword] = useState(null);
-  const navigate = useNavigate()
+export default function Login() {
 
-  const handleOptionChange = (option) => {
-    setUser(option)
-  }
+  const nameRef = useRef()
+  const passwordRef = useRef()
+
+  // const handleOptionChange = (option) => {
+  //   setUser(option)
+  // }
   
   const handleSubmit = async (event) => {
     event.preventDefault()
-    
-    try {
-      const response = await axios.post('http://localhost/login.php', {job: user, username, password } )
-      console.log('Response from PHP:', response.data)
-      // Handle response accordingly
-      navigate("/client")
-    } catch (error) {
-      console.error('Error:', error)
-      navigate("/connexion")
-      // Handle error accordingly
-    }
   }
 
   return (
@@ -43,7 +28,7 @@ const Login = () => {
         <Link to="signup" className='link-deco'>ici</Link></div>
         <div className='entries-pic'>
           <Form  style={{ width: '400px' }} onSubmit={handleSubmit} method='POST'>
-            <div className="image-radio-group">
+            {/* <div className="image-radio-group">
               <label className={`image-option ${user === 'client' ? 'selected' : ''}`}>
                 <input 
                   type="radio" 
@@ -92,7 +77,7 @@ const Login = () => {
                   name="option" 
                   value="patron" 
                   checked={user === 'patron'} 
-                  onChange={(() => handleOptionChange('patron'))} 
+                  onChange={() => handleOptionChange('patron')} 
                 />
                 <img 
                   className='interface'
@@ -100,14 +85,14 @@ const Login = () => {
                   alt="/"
                 />
               </label>
-            </div>
+            </div> */}
 
             <Form.Group className="user" controlId="username">
               <Form.Control 
-                value={username} 
+                ref={nameRef}
+                // value={username} 
                 name='username'
                 type='text'
-                onChange={(e) => setUsername(e.target.value)} 
                 placeholder="Nom d'utilisateur" 
               />
             </Form.Group>
@@ -116,10 +101,10 @@ const Login = () => {
             
             <Form.Group as={Col} controlId="password">
               <Form.Control 
-                value={password}
+                ref={passwordRef}
+                // value={password}
                 name="password" 
                 type="password" 
-                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Mot de Passe"
                 />
             </Form.Group>
@@ -143,5 +128,3 @@ const Login = () => {
     </div>
   )
 }
-
-export default Login

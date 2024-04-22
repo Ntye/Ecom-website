@@ -14,6 +14,7 @@ const LazySearch = lazy(() => import('./users/client/pages/Search'))
 const LazyConnexion = lazy(() => import('./index/Connexion'))
 const LazyLogin = lazy(() => import('./index/Login'))
 const LazySignup = lazy(() => import('./index/Signup'))
+const LazySignupEmp = lazy(() => import('./index/SignupEmp'))
 const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
 // const LazyLoading = lazy(() => import('./index/Loading/Loading'))
 const LazyNotFound = lazy(() => import('./index/NotFound'))
@@ -52,6 +53,14 @@ const router = createBrowserRouter ([
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazySignup/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'signup-employee',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazySignupEmp/>
           </Suspense>
         )
       }
