@@ -158,11 +158,12 @@ const Signup = () => {
             <Button className='custom-button' variant="secondary" type="submit" value="SEND">
               Inscrivez Vous
             </Button>
+            <span className='sub-text'>Vous etes un employer? </span> {'  '} 
+            <Link to="/connexion/signup-employee" className='link-deco'>Cliquer ici!</Link>
           </Form>
-          <div className='note'><span className='sub-text'>Vous etes un employer? </span> {'  '} 
-          <Link to="signup-employee" className='link-deco'>Cliquer ici!</Link></div>
-            <img className='image' src={Image} alt="/" />
-          </div>
+          
+          <img className='image' src={Image} alt="/" />
+        </div>
       </div>
     </div>
   )

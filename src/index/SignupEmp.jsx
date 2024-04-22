@@ -160,7 +160,7 @@ const SignupEmp = () => {
             </Button>
           </Form>
           <div className='note'><span className='sub-text'>Vous etes un client? </span> {'  '} 
-          <Link to="signup" className='link-deco'>Cliquer ici!</Link></div>
+          <Link to="/connexion/signup" className='link-deco'>Cliquer ici!</Link></div>
             <img className='image' src={Image} alt="/" />
           </div>
       </div>
