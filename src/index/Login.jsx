@@ -3,14 +3,47 @@ import { Row, Form, Col, Button } from 'react-bootstrap'
 import "./styles/Connexion.css"
 import { Link } from 'react-router-dom'
 import Image from "../assets/log.svg"
+import swal from 'sweetalert'
 // import axios from '../api/axios'
 
 
 export default function Login() {
   
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-  }
+  const handleSubmit =  (e) => {
+    e.preventDefault();
+    let error = {
+      title: 'You should enter the following field(s)\n\n',
+      message: '',
+      num: 0
+    }
+    const data = {}
+    const form = new FormData(e.currentTarget)
+    form.forEach((value, key)=>data[key] = value)
+    console.log(data)
+    
+    if (data.username.length === 0) {
+      error.message = error.message + '- Username\n'
+      error.num = error.num +1
+    } 
+    if (data.pwd.length === 0) {
+      error.message = error.message + '- Password\n'
+      error.num = error.num +1
+    } 
+    if(error.num > 0) swal(error.message);
+    else {
+      // if(data.confpwd.localcompare(data.pwd) === 0){
+        // delete data.confpwd
+        console.log(data)
+        // const url = "http://localhost/enquired.php";
+        // axios.post(url, fData)
+        //   .then(response => alert(response.data))
+        //   .catch(error => alert(error));
+      // }
+      // else{
+      //   swal("les mots de passe ne correspondent pas, veuillez reessayer!");
+      // }
+    }
+}
 
   return (
     <div className='centered'>
@@ -33,13 +66,13 @@ export default function Login() {
             <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
             
             <Row className='mb-3'>
-            <Form.Group as={Col} controlId="password">
-              <Form.Control 
-                name="password" 
-                type="password" 
-                placeholder="Mot de Passe"
-                />
-            </Form.Group>
+              <Form.Group as={Col} controlId="password">
+                <Form.Control 
+                  name="pwd" 
+                  type="password" 
+                  placeholder="Mot de Passe"
+                  />
+              </Form.Group>
             </Row>
 
             <Button className='custom-button' variant="secondary" type="submit">
