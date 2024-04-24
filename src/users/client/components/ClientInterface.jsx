@@ -1,13 +1,15 @@
-// import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarComp from "./NavbarComp"
+import '../styles/Client.css'
 
 import { Outlet } from "react-router-dom"
 
 const ClientInterface = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
+    <div>
+      <NavbarComp/>
       <Outlet/>
-    </h1>
+    </div>
   )
 }
 

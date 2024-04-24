@@ -1,18 +1,64 @@
-.navbar {
-  background-color: rgba(0, 0, 0, 0.306);
+/* nav {
   display: flex;
-  margin-left: 4.0625rem;
-  margin-right: 4.0625rem;
-  margin-top: 1.875rem;
-  height: 4.38rem; 
-  /* left: 4.06rem; 
-  top: 1.88rem;  */
-  gap: 19.38rem
+  flex-direction: row;
+  align-items: center;
+  z-index: 0;
 }
 
-.home-banner-container {
-  position: absolute;
-  top: 0rem;
-  left: 0;
-  z-index: -2;
+.search-input {
+  width: 250px;
+  border-color: #d4adad;
+  border-radius: 5px;
+}
+
+.search-button {
+  margin-top: 2px;
+  border-radius: 5px;
+  color: bisque;
+  border-color: bisque;
+}
+.search-icon {
+  color: #d4adad;
+  
+}
+
+.pages {
+  display: flex;
+  flex-direction: row;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.icon {
+  align-items: center;
+}
+
+.activeLink {
+  color: #3b82f6;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.normalLink {
+  color: #000000;
+  color: inherit; 
+  font-weight: normal;
+  text-decoration: none;
+} */
+
+.logo {
+  margin-left: 25px;
+  margin-right: 300px;
+}
+
+.page {
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }

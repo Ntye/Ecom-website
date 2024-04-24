@@ -1,13 +1,25 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Navigate, createBrowserRouter } from "react-router-dom";
-import Index from "./index/Index"
-import Connexion from "./index/Connexion";
-import Login from "./index/Login";
 import { Suspense, lazy } from "react";
+import Spinner from 'react-bootstrap/Spinner';
 
-const LazyHome = lazy(() => import('./users/client/pages/Home'))
-const LazyClientInterface = lazy(() => import('./users/client/components/ClientInterface'))
+import Index from "./index/Index"
+// import Loading from "./index/Loading/Loading";
+
+
+const LazyAcceuil = lazy(() => import('./users/client/pages/Acceuil'))
+const LazyPanier = lazy(() => import('./users/client/pages/Panier'))
+const LazyCompte = lazy(() => import('./users/client/pages/Compte'))
+const LazySearch = lazy(() => import('./users/client/pages/Search'))
+const LazyConnexion = lazy(() => import('./index/Connexion'))
+const LazyLogin = lazy(() => import('./index/Login'))
+const LazyLoginEmp = lazy(() => import('./index/LoginEmp'))
 const LazySignup = lazy(() => import('./index/Signup'))
+const LazySignupEmp = lazy(() => import('./index/SignupEmp'))
+const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
+// const LazyLoading = lazy(() => import('./index/Loading/Loading'))
+const LazyNotFound = lazy(() => import('./index/NotFound'))
+
 const router = createBrowserRouter ([
   {
     path: '/',
@@ -15,39 +27,107 @@ const router = createBrowserRouter ([
   },
   {
     path: '/connexion',
-    element: <Connexion/>,
-    children: [
-      {
-        path: 'login',
-        element: <Navigate to="/connexion"/>
-      },
+    element: (
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+        <LazyConnexion/>
+      </Suspense>
+    ),
+    children:[
       {
         path: '/connexion',
-        element: <Login/>
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyLogin/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'login',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <Navigate to="/connexion"/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'login-employee',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyLoginEmp/>
+          </Suspense>
+        )
       },
       {
         path: 'signup',
         element: (
-          <Suspense fallback={<>Loading...</>}>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazySignup/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'signup-employee',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazySignupEmp/>
           </Suspense>
         )
       }
     ]
   },
   {
-    path: 'client',
-    element: <LazyClientInterface/>,
+    path: '*',
+    element: (
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+        <LazyNotFound/>
+      </Suspense>
+    )
+  },
+  {
+    path: '/client',
+    element: (
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+        <LazyClient/>
+      </Suspense>
+    ),
     children:[
       {
-        path: 'client',
-        element: <LazyHome/>
+        path: 'acceuil',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyAcceuil/>
+          </Suspense>
+        )
       },
       {
-        path: 'home',
+        path: '/client',
         element: (
-          <Suspense fallback={<>Loading...</>}>
-            <Navigate to="client"/>
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <Navigate to="acceuil"/>
+          </Suspense>
+    ),
+      },
+      {
+        path: 'panier',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyPanier/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'compte',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyCompte/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'search',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazySearch/>
           </Suspense>
         )
       }

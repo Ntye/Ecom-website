@@ -1,87 +1,174 @@
-.content {
-  display: flex; /* flex */
-  flex-direction: column; /* flex-col */
-  justify-content: center; /* justify-center */
-  flex: 1; /* flex-1 */
-  min-height: 100%; /* min-h-full */
-  padding-left: 1.5rem; /* px-6 */
-  padding-right: 1.5rem; /* px-6 */
-  padding-top: 3rem; /* py-12 */
-  padding-bottom: 3rem; /* py-12 */
+.logo {
+  margin-right: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  display: flex;
+  padding-left: 50px;
+  align-items: center;
 }
 
-.info {
-  margin-top: 1.5rem; /* mt-6 */
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 700; /* font-bold */
-  letter-spacing: -0.025em; /* tracking-tight */
-  text-align: center; /* text-center */
-  color: #111827; /* text-gray-900 */
+.intro-word {
+  font-family: "Anybody", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: x-large;
+  font-variation-settings: "wdth" 100;
 }
 
-.par {
-  margin-top: 0.5rem; /* mt-2 */
-  font-size: 0.875rem; /* text-sm */
-  text-align: center; /* text-center */
-  color: #4b5563; /* text-gray-600 */
+.store {
+  font-family: "Kaushan Script", cursive;
+  font-weight: 500;
+  font-style: normal;
 }
 
-.pinks {
+.sub-text {
+  font-family: "Anybody", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(126, 122, 122);
+  font-size: small;
+  font-variation-settings: "wdth" 100;
+}
+.note {
+  margin-bottom: 0.1rem;
+}
+
+.link-deco {font-family: "Anybody", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(231, 69, 69);
+  font-size: small;
+  font-variation-settings: "wdth" 100;
+  text-decoration: none;
+}
+
+.link-deco:hover {
+  color: #9c4908; /* Set the hover color */
+}
+
+.centered {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.entries {
+  /* margin-right: 200px; */
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 45px;
+  width: 900px;
+  border-radius: 54px;
+  background-color: #FFD3D3;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.388);
+  transition: width 0.5s, height 0.5s;
+}
+
+.user {
+  margin-bottom: 0px;
+}
+
+.pass {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.entries-pic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.centered-img {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.image {
+  margin-left: 60px;
+  width: 300px;
+  height: 300px;
+  transition: width 0.5s, height 0.5s; /* Add a transition effect for width and height changes */
+}
+
+.image-radio-group {
+  margin-bottom: 0.75rem;
+}
+
+.top-image {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: -2;
   max-width: 60%;
+  z-index: -1;
 }
 
-.pinkl {
+.bot-image {
   position: absolute;
-  top: -5px;
-  right: 0;
-  z-index: -2;
-  max-width: 65%;
+  bottom: 0;
+  left: 0;
+  max-width: 60%;
+  z-index: -1;
 }
 
-.greens {
-  position: absolute;
-  top: 0;
-  left: -10px;
-  z-index: -2;
-  max-width: 30%;
+.logo-cont {
+  padding-left: 4.5rem;
 }
 
-.greenl {
-  position: absolute;
-  top: 0;
-  left: 20;
-  z-index: 0;
-  max-width: 30%;
-}
-.account {
-  font-weight: 500; /* font-medium */
-  color: #4f46e5; /* text-indigo-600 */
+.custom-button {
+  background-color: #FFB7D0;
+  color: #000000; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.388);
+  border: none;
 }
 
-.account:hover {
-  color: #4338ca; /* hover:text-indigo-500 */
+.custom-button:hover {
+  background-color: #bd6643; /* Change background color on hover */
 }
 
-.form {
-  margin-top: 2.5rem; /* mt-10 */
+.interface {
+  width: 80px;
+  height: 80px;
 }
 
-@media (min-width: 640px) {
-  .form {
-    margin-left: auto; /* sm:mx-auto */
-    margin-right: auto; /* sm:mx-auto */
-    width: 100%; /* sm:w-full */
-    max-width: 20rem; /* sm:max-w-sm */
+.remember {
+  margin-bottom: 10px;
+}
+
+.react-datepicker {
+  font-family: Arial, sans-serif;
+}
+
+@media (max-width: 900px) {
+  .image {
+    display: none;
+  }
+  .logo {
+    margin-right: 150px;
+  }
+  .entries {
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 600px;
+    border-radius: 54px;
+    margin-right: 0px;
   }
 }
 
-@media (min-width: 1024px) {
-  .content {
-      padding-left: 2rem; /* lg:px-8 */
-      padding-right: 2rem; /* lg:px-8 */
+@media (max-width: 640px) {
+  .image {
+    display: none;
+  }
+  .logo {
+    margin-right: 150px;
+  }
+  .entries {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 400px;
+    border-radius: 54px;
   }
 }
