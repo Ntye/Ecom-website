@@ -4,7 +4,6 @@ import { Suspense, lazy } from "react";
 import Spinner from 'react-bootstrap/Spinner';
 
 import Index from "./index/Index"
-// import Loading from "./index/Loading/Loading";
 
 
 const LazyAcceuil = lazy(() => import('./users/client/pages/Acceuil'))
@@ -92,7 +91,7 @@ const router = createBrowserRouter ([
     ),
     children:[
       {
-        path: 'acceuil',
+        path: '/client',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyAcceuil/>
@@ -100,10 +99,10 @@ const router = createBrowserRouter ([
         )
       },
       {
-        path: '/client',
+        path: '/acceuil',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
-            <Navigate to="acceuil"/>
+            <Navigate to="/client"/>
           </Suspense>
     ),
       },
