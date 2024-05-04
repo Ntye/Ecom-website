@@ -4,19 +4,22 @@ import { Suspense, lazy } from "react";
 import Spinner from 'react-bootstrap/Spinner';
 
 import Index from "./index/Index"
-// import Loading from "./index/Loading/Loading";
 
 
-const LazyAcceuil = lazy(() => import('./users/client/pages/Acceuil'))
-const LazyPanier = lazy(() => import('./users/client/pages/Panier'))
-const LazyCompte = lazy(() => import('./users/client/pages/Compte'))
+//Client Interface pages
+const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
+const LazyLanding = lazy(() => import('./users/client/pages/Landing'))
+const LazyPanier = lazy(() => import('./users/client/pages/Cart'))
+const LazyCompte = lazy(() => import('./users/client/pages/Profile'))
 const LazySearch = lazy(() => import('./users/client/pages/Search'))
+
+//Connexion pages
 const LazyConnexion = lazy(() => import('./index/Connexion'))
 const LazyLogin = lazy(() => import('./index/Login'))
 const LazyLoginEmp = lazy(() => import('./index/LoginEmp'))
 const LazySignup = lazy(() => import('./index/Signup'))
 const LazySignupEmp = lazy(() => import('./index/SignupEmp'))
-const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
+
 // const LazyLoading = lazy(() => import('./index/Loading/Loading'))
 const LazyNotFound = lazy(() => import('./index/NotFound'))
 
@@ -95,7 +98,7 @@ const router = createBrowserRouter ([
         path: 'acceuil',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
-            <LazyAcceuil/>
+            <LazyLanding/>
           </Suspense>
         )
       },

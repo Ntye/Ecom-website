@@ -1,0 +1,15 @@
+.left-image {
+  position: absolute;
+  top: -90;
+  left: 0;
+  max-width: 60%;
+  z-index: -1;
+}
+
+.right-image {
+  position: absolute;
+  top: -90;
+  right: 0;
+  max-width: 60%;
+  z-index: -1;
+}
