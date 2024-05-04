@@ -2,3 +2,26 @@
   width: 70%; /* Adjust the width percentage as needed */
   margin: auto; /* To center the carousel horizontally */
 }
+
+/*Images*/
+.pink-bot {
+  position: absolute;
+  left: 0;
+  top: 300px;
+  z-index: -2;
+}
+
+.pink-top {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+.green {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  z-index: -1;
+}
+
+

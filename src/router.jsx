@@ -6,14 +6,15 @@ import Spinner from 'react-bootstrap/Spinner';
 import Index from "./index/Index"
 
 
-//Client Interface pages
+
+// Client Interface pages
 const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
 const LazyLanding = lazy(() => import('./users/client/pages/Landing'))
 const LazyPanier = lazy(() => import('./users/client/pages/Cart'))
 const LazyCompte = lazy(() => import('./users/client/pages/Profile'))
 const LazySearch = lazy(() => import('./users/client/pages/Search'))
 
-//Connexion pages
+// Connexion pages
 const LazyConnexion = lazy(() => import('./index/Connexion'))
 const LazyLogin = lazy(() => import('./index/Login'))
 const LazyLoginEmp = lazy(() => import('./index/LoginEmp'))
@@ -95,7 +96,7 @@ const router = createBrowserRouter ([
     ),
     children:[
       {
-        path: 'acceuil',
+        path: '/client',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyLanding/>
@@ -103,10 +104,10 @@ const router = createBrowserRouter ([
         )
       },
       {
-        path: '/client',
+        path: 'acceuil',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
-            <Navigate to="acceuil"/>
+            <Navigate to="/client"/>
           </Suspense>
     ),
       },
