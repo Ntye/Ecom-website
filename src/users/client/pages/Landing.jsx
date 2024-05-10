@@ -23,7 +23,6 @@ import "../components/styles/ClientInterface.css"
 import "./styles/Landing.css"
 import {useEffect, useRef, useState} from "react";
 
-
 const Landing = () => {
 const divRef = useRef(null);
 const [isVisible, setIsVisible] = useState(false);

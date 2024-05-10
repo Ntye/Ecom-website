@@ -5,42 +5,43 @@ import {CartItem} from "../utilities/CartItem.jsx";
 import {useEffect, useState} from "react";
 import * as Fa from "react-icons/fa";
 
-const cartItems = [
-  {
-    "id": 1,
-    "title": "iPhone 11 Pro",
-    "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-    "price": 450,
-    "quantity": 1,
-    "description": "256GB, Navy Blue"
-  },
-  {
-    "id": 2,
-    "title": "Samsung Galaxy S20",
-    "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-    "price": 700,
-    "quantity": 1,
-    "description": "128GB, Cosmic Gray"
-  },
-  {
-    "id": 3,
-    "title": "iPhone 11 Pro",
-    "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-    "price": 450,
-    "quantity": 1,
-    "description": "256GB, Navy Blue"
-  },
-  {
-    "id": 4,
-    "title": "Samsung Galaxy S20",
-    "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-    "price": 700,
-    "quantity": 1,
-    "description": "128GB, Cosmic Gray"
-  }
-];
+
 export default function Cart() {
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [cartItems, setCartItems] = useState([
+    {
+      "id": 1,
+      "title": "iPhone 11 Pro",
+      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
+      "price": 450,
+      "quantity": 1,
+      "description": "256GB, Navy Blue"
+    },
+    {
+      "id": 2,
+      "title": "Samsung Galaxy S20",
+      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
+      "price": 700,
+      "quantity": 1,
+      "description": "128GB, Cosmic Gray"
+    },
+    {
+      "id": 3,
+      "title": "iPhone 11 Pro",
+      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
+      "price": 450,
+      "quantity": 1,
+      "description": "256GB, Navy Blue"
+    },
+    {
+      "id": 4,
+      "title": "Samsung Galaxy S20",
+      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
+      "price": 700,
+      "quantity": 1,
+      "description": "128GB, Cosmic Gray"
+    }
+  ])
+
   const updatedCartItems = [...cartItems];
 
   const handleUpdateQuantity = (index, newQuantity) => {

@@ -58,9 +58,9 @@ export const CartItem = ({ title, image, description, price , quantity,  isCheck
             <h5 className="mb-0">${localQuantity * price}</h5>
           </div>
 
-          <div>
-            <Fa.FaTrash className="trash" onClick={onRemoveItem}/>
-          </div>
+          <button className="trash-button trash" onClick={onRemoveItem}>
+            <Fa.FaTrash />
+          </button>
         </div>
 
       </div>
