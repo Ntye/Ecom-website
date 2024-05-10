@@ -1,13 +1,29 @@
+/*Carousel*/
+.carousel_title {
+  margin-left: 145px;
+  margin-bottom: 20px;
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 600;
+  font-style: normal;
+}
 .custom-carousel {
-  width: 70%; /* Adjust the width percentage as needed */
+  width: 85%; /* Adjust the width percentage as needed */
   margin: auto; /* To center the carousel horizontally */
+  margin-bottom: 50px;
+  border-radius: 50px;
+}
+
+.carousel_item {
+  width: 100%;
+  display: block;
+  border-radius: 50px;
 }
 
 /*Images*/
 .pink-bot {
   position: absolute;
   left: 0;
-  top: 300px;
+  top: 900px;
   z-index: -2;
 }
 
@@ -24,4 +40,67 @@
   z-index: -1;
 }
 
+/*Categories*/
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.categorie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.categorie_image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.categorie_text {
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*Products*/
+.product-section {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.product_list_title {
+  margin-left: 160px;
+  margin-bottom: 20px;
+  font-family: "Inknut Antiqua", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.product_list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+.animated {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 

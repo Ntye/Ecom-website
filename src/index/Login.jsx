@@ -1,25 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Row, Form, Col, Button } from 'react-bootstrap'
 import "./styles/Connexion.css"
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import Image from "../assets/log.svg"
 import swal from 'sweetalert'
 // import axios from '../api/axios'
 
 
 export default function Login() {
-  
+
   const handleSubmit =  (e) => {
     e.preventDefault();
     let error = {
-      title: 'You should enter the following field(s)\n\n',
+      title: 'Enter this field(s)',
       message: '',
       num: 0
     }
     const data = {}
     const form = new FormData(e.currentTarget)
     form.forEach((value, key)=>data[key] = value)
-    console.log(data)
+
     
     if (data.username.length === 0) {
       error.message = error.message + '- Username\n'
@@ -29,11 +29,39 @@ export default function Login() {
       error.message = error.message + '- Password\n'
       error.num = error.num +1
     } 
-    if(error.num > 0) swal(error.message);
+    if(error.num > 0){
+      swal({
+        title: error.title,
+        text: error.message,
+        icon: "error",
+        content: {
+          element: "button",
+          attributes: {
+            text: "Retry",
+          },
+        },
+      })
+    }
     else {
-      // if(data.confpwd.localcompare(data.pwd) === 0){
+      console.log(data)
+      swal({
+        title: "Login Done",
+        // text: error.message,
+        icon: "success",
+        content: {
+          element: "button",
+          attributes: {
+            text: "Success",
+          },
+        },
+      })
+      setTimeout(() => {
+        window.location.href = "/client";
+      }, 2000);
+        // if(data.confpwd.localcompare(data.pwd) === 0){
         // delete data.confpwd
-        console.log(data)
+
+
         // const url = "http://localhost/enquired.php";
         // axios.post(url, fData)
         //   .then(response => alert(response.data))

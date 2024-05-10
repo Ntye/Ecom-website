@@ -22,11 +22,8 @@ function NavbarComp() {
 
   return (
     <>
-      
-      
-      <Navbar key={'lg'} expand={'lg'} className="bg-body-tertiary mb-3">
+      <Navbar key={'lg'} expand={'lg'} className="bg-body-tertiary mb-3 ">
         <Container fluid>
-          
           <Navbar.Brand href="#"> <img src={Logo} className='logo' alt='/'/> </Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
           <Navbar.Offcanvas
@@ -48,16 +45,16 @@ function NavbarComp() {
                   <Form.Control
                     type="search"
                     placeholder="Search"
-                    className="me-2"
+                    className="search-input"
                     aria-label="Search"
                   />
-                  <Button variant="outline-success" className='custom-searchbutton'>Search</Button>
+                  <Button variant="outline-success" className='custom-searchbutton'><Fa.FaSearch/> </Button>
                 </Form>
                 <Nav.Item>
                   <Nav.Link as={Link} to="/client" className={`custom-nav-link ${isActive('/panier')}`} >
                     <div className="page">
                       <span className='icon'><Fa.FaHome/>  </span>
-                      <span>Acceuil</span>
+                      <span className="page-link">Acceuil</span>
                     </div>
                   </Nav.Link>
                 </Nav.Item>
@@ -65,7 +62,7 @@ function NavbarComp() {
                   <Nav.Link as={Link} to="panier" className="custom-nav-link" activeClassName="active">
                     <div className="page">
                       <span className='icon'><Fa.FaShoppingCart/> </span>
-                      <span>Panier</span>
+                      <span className="page-link">Panier</span>
                     </div>
                   </Nav.Link>
                 </Nav.Item>
@@ -73,7 +70,7 @@ function NavbarComp() {
                   <Nav.Link as={Link} to="panier" className="custom-nav-link" activeClassName="active">
                     <div className="page">
                       <span className='icon'><Fa.FaSearchLocation/> </span>
-                      <span>Magasin</span>
+                      <span className="page-link">Magasin</span>
                     </div>
                   </Nav.Link>
                 </Nav.Item>
@@ -81,7 +78,7 @@ function NavbarComp() {
                   <Nav.Link as={Link} to="compte" className="custom-nav-link" activeClassName="active">
                     <div className="page">
                       <span className='icon'><Fa.FaUser />  </span>
-                      <span>Compte</span>
+                      <span className="page-link">Compte</span>
                     </div>
                   </Nav.Link>
                 </Nav.Item>

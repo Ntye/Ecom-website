@@ -5,8 +5,6 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import Index from "./index/Index"
 
-
-
 // Client Interface pages
 const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
 const LazyLanding = lazy(() => import('./users/client/pages/Landing'))
