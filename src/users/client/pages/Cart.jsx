@@ -1,9 +1,6 @@
-
-
 import "./styles/Cart.css"
 import {CartItem} from "../utilities/CartItem.jsx";
 import {useEffect, useState} from "react";
-import * as Fa from "react-icons/fa";
 
 
 export default function Cart() {
@@ -90,7 +87,7 @@ export default function Cart() {
       <div>
         <div className="cart_title_text">
           <h1 className="cart_page">Shopping Cart</h1>
-          <p className="cart_items">Number of Items: {countSelectedItems()}</p>
+          <p className="cart_items">Number of Items: {cartItems.length}</p>
         </div>
 
         <div className="select-all" >
@@ -122,7 +119,7 @@ export default function Cart() {
           </div>
 
           <div className="rightside">
-            YOOOOOOOOOOOOOOOOOOOO
+            <p className="cart_items">Number of Items: {countSelectedItems()}</p>
             <p className="cart_items">Total Amount: ${calculateTotalAmount()}</p>
           </div>
         </div>
