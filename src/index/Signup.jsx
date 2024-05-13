@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Col, Row, Button } from 'react-bootstrap';
-import "react-datepicker/dist/react-datepicker.css"
 import "./styles/Connexion.css"
 import { Link } from 'react-router-dom';
 import Image from "../assets/log.svg"
@@ -9,28 +8,9 @@ import {useEffect, useState} from "react";
 
 import axios from 'axios';
 const Signup = () => {
-  const sexe = 'Sexe'
-  const ville = 'Ville'
-
   const [cities, setCities] = useState([]);
 
-  useEffect(() => {
-    const fetchCities = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:8000/api/cities');
-
-        const { data } = response;
-
-        // setCities(data);
-      } catch (error) {
-        console.error('Error fetching cities:', error);
-      }
-    };
-
-    fetchCities();
-  }, []);
-
-  const handleSubmit = async (e) => {
+  async function handleSubmit (e) {
     e.preventDefault();
     let error = {
       title: 'You should enter the following field(s)\n\n',
@@ -61,19 +41,58 @@ const Signup = () => {
         form.forEach((value, key)=>data[key] = value)
         console.log(data)
 
-        const url = "http://127.0.0.1:8000/api/sign-in";
-        const response = await axios.post(url, data)
-          // .then(response => alert(response.data))
-          // .catch(error => alert(error));
+        try {
+          const url = "http://127.0.0.1:8000/api/sign-in";
+          const response = await axios.post(url, data)
+
+          swal({
+            title: "Successful Signup",
+            icon: "success",
+          })
+          setTimeout(() => {
+            window.location.href = "/client";
+          }, 2000);
+
+        }catch (error) {
+          swal("User already Exists")
+          console.log(response.data.message)
+        }
       }
       else {
-        swal("les mots de passe ne correspondent pas, veuillez reessayer!");
+        swal("Les mots de passe ne correspondent pas, veuillez reessayer!");
       }
-      console.log(data)
     } else {
+      swal({
+        title: error.title,
+        text: error.message,
+        icon: "error",
+        content: {
+          element: "button",
+          attributes: {
+            text: "Retry",
+          },
+        },
+      })
       console.log("At least one field is empty.");
     }
   }
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/cities')
+
+        const { data } = response;
+
+        setCities(data);
+      } catch (error) {
+        console.error('Error fetching cities:', error);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
   return (
     <div className='centered'>
       <div className='entries'>
@@ -118,7 +137,7 @@ const Signup = () => {
               </Form.Group>
 
               <Form.Group as={Col} controlId="Ville">
-                <Form.Select name="ville" defaultValue={ville}>
+                <Form.Select name="idVille" defaultValue="Ville">
                   <option value='' type='text'>Ville</option>
                   {cities.map((item) => (
                     <option key={item.idVille} value={item.idVille}>{item.libelle}</option>

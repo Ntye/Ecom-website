@@ -10,21 +10,25 @@ import * as Fa from "react-icons/fa";
 const ClientInterface = () => {
     const navItems=[
         {
+            "id": "1",
             "name": "Acceuil",
             "icon": <Fa.FaHome/>,
             "link": "/client"
         },
         {
+            "id": "2",
             "name": "Panier",
             "icon": <Fa.FaShoppingCart/>,
             "link": "panier"
         },
         {
+            "id": "3",
             "name": "Magasin",
             "icon": <Fa.FaSearchLocation/>,
             "link": "/client"
         },
         {
+            "id": "4",
             "name": "Compte",
             "icon": <Fa.FaUser />,
             "link": "compte"

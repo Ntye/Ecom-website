@@ -42,15 +42,17 @@ function NavbarC({navItems}) {
                             <Nav variant="underline" className="justify-content-end flex-grow-1 pe-3">
                                 <Form className="custom-search">
                                     <Form.Control
-                                        type="search"
-                                        placeholder="Search"
-                                        className="search-input"
-                                        aria-label="Search"
+                                      name="search"
+                                      type="search"
+                                      placeholder="Search"
+                                      className="search-input"
+                                      aria-label="Search"
                                     />
                                     <Button variant="outline-success" className='custom-searchbutton'><Fa.FaSearch/> </Button>
                                 </Form>
                                 {navItems.map((item, index) => (
                                     <NavComponent
+                                        key={item.id}
                                         name={item.name}
                                         icon={item.icon}
                                         link={item.link}
