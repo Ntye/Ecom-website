@@ -14,7 +14,7 @@ import "./styles/NavbarC.css"
 import "../client/components/styles/ClientInterface.css"
 import NavComponent from "./NavComponent.jsx";
 
-function NavbarC({navItems}) {
+function NavbarC({navItems, show}) {
     const location = useLocation();
 
     const isActive = (path) => {
@@ -23,7 +23,7 @@ function NavbarC({navItems}) {
 
     return (
       <>
-        <Navbar key={'lg'} expand={'lg'} className="bg-body-tertiary mb-3 ">
+        <Navbar key={'lg'} expand={'lg'} className=" ">
           <Container fluid>
             <Navbar.Brand href="#"> <img src={Logo} className='logo' alt='/'/> </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
@@ -40,16 +40,20 @@ function NavbarC({navItems}) {
               </Offcanvas.Header>
               <Offcanvas.Body className='custom-body'>
                 <Nav variant="underline" className="justify-content-end flex-grow-1 pe-3">
-                  <Form className="custom-search">
-                    <Form.Control
-                      name="search"
-                      type="search"
-                      placeholder="Search"
-                      className="search-input"
-                      aria-label="Search"
-                    />
-                    <Button variant="outline-success" className='custom-searchbutton'><Fa.FaSearch/> </Button>
-                  </Form>
+                  {show && (
+                    <Form className="custom-search">
+                      <Form.Control
+                        name="search"
+                        type="search"
+                        placeholder="Search"
+                        className="search-input"
+                        aria-label="Search"
+                      />
+                      <Button variant="outline-success" className='custom-searchbutton'>
+                        <Fa.FaSearch />
+                      </Button>
+                    </Form>
+                  )}
                   {navItems.map((item, index) => (
                     <NavComponent
                       key={item.id}

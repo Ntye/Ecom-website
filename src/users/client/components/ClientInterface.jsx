@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import NavbarC from "./NavbarC.jsx"
 import NavbarC from "../../components/NavbarC.jsx"
 import Footer from "./Footer.jsx";
 import './styles/ClientInterface.css'
@@ -35,10 +34,13 @@ const ClientInterface = () => {
         }
     ]
 
+    const show = true
+
   return (
     <div className="main-container">
       <NavbarC
           navItems={navItems}
+          show={show}
       />
       <div className="content-area">
         <Outlet/>

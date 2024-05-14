@@ -5,6 +5,13 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import Index from "./index/Index"
 
+//Magasinier Interface
+const LazyMagasinier = lazy(() => import('./users/magasinier/components/MagasinierInterface.jsx'))
+const LazyMLanding =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
+const LazyAdd =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
+const LazyView =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
+const LazyModify =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
+
 // Employee Interface pages
 const LazyLocation = lazy(() => import('./users/client/pages/Location.jsx'))
 
@@ -141,6 +148,40 @@ const router = createBrowserRouter ([
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazySearch/>
+          </Suspense>
+        )
+      }
+    ]
+  },
+  {
+    path: '/magasinier',
+    element: (
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+        <LazyMagasinier/>
+      </Suspense>
+    ),
+    children:[
+      {
+        path: '/magasinier',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyLanding/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'acceuil',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <Navigate to="/magasinier"/>
+          </Suspense>
+        ),
+      },
+      {
+        path: 'location',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyLocation/>
           </Suspense>
         )
       }
