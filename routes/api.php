@@ -37,5 +37,4 @@ Route::get('/products/{codePro}', [ProduitController::class, 'show']);
 
 //On Photo Table
 Route::post('/upload', [PhotoController::class, 'store']);
-Route::post('/uploadall', [PhotoController::class, 'storeall']);
 Route::get('/photos', [PhotoController::class, 'index']);
