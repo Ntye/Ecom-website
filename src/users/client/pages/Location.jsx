@@ -68,7 +68,7 @@ function Location() {
       <h2>Upload Photo</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <input type="file" name="photo" required onChange={handlePhotoChange}/>
-        <input type="text" name="codePro" required value={codePro} onChange={handleCodeProChange}/>
+        <input type="text" name="codePro" required value={codePro} onChange={handleCodeProChange} placeholder="Code du produit"/>
         <button type="submit">Upload</button>
       </form>
       {message && <p>{message}</p>}
