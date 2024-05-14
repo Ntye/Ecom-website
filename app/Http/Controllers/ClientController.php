@@ -83,7 +83,5 @@ class ClientController extends Controller
             // Return a response indicating success
             return response()->json(['message' => 'client inserted successfully'], 201);
         }
-
-
     }
 }

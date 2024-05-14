@@ -8,14 +8,11 @@
 </head>
 <body >
     <h1>Upload</h1>
-    <form method="POST" action="/upload" enctype="multipart/form-data">
+    <form method="POST" action="/api/upload" enctype="multipart/form-data" >
         @csrf
         <input type="file" name="photo">
+        <input type="text" name="codePro" placeholder="code categorie">
         <input type="submit" name="upload">
     </form>
-{{--    <hr/>--}}
-{{--    <@foreach($photos as $photo)--}}
-{{--         <li>{{$photo->name}} <img src="{{asset('storage/images/', $photo->name)}}"/> </li>--}}
-{{--    @endforeach--}}
 </body>
 </html>

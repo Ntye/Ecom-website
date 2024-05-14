@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VilleController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ClientController;
+use \App\Http\Controllers\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,8 @@ Route::post('/login', [ClientController::class, 'login']);
 Route::post('/new-product', [ProduitController::class, 'store']);
 Route::get('/all-products', [ProduitController::class, 'index']);
 Route::get('/products/{codePro}', [ProduitController::class, 'show']);
+
+//On Photo Table
+Route::post('/upload', [PhotoController::class, 'store']);
+Route::post('/uploadall', [PhotoController::class, 'storeall']);
+Route::get('/photos', [PhotoController::class, 'index']);
