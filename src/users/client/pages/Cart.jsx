@@ -1,6 +1,8 @@
 import "./styles/Cart.css"
 import {CartItem} from "../utilities/CartItem.jsx";
 import {useEffect, useState} from "react";
+import PinkBot from "../../../assets/Cart_Pink.svg";
+import Green from "../../../assets/Cart_Green.svg";
 
 
 export default function Cart() {
@@ -84,46 +86,51 @@ export default function Cart() {
 
 
   return (
-      <div>
-        <div className="cart_title_text">
-          <h1 className="cart_page">Shopping Cart</h1>
-          <p className="cart_items">Number of Items: {cartItems.length}</p>
+    <div>
+      <img src={PinkBot} className="pink-bot"/>
+      <img src={Green} className="green-top"/>
+
+      <div className="cart_title_text">
+        <h1 className="cart_page">Shopping Cart</h1>
+        <p className="cart_items">Number of Items: {cartItems.length}</p>
+      </div>
+
+      <div className="select-all">
+        <input
+          type="checkbox"
+          checked={!checkboxStates.includes(false)}
+          onChange={() => checking(checkboxStates.includes(false))}
+          className="custom-checkbox"
+        />
+        <p className="cart_items">Select all</p>
+      </div>
+
+      <div className="cart_body">
+        <div className="leftside">
+          {cartItems.map((item, index) => (
+            <CartItem
+              key={item.id}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              quantity={item.quantity}
+              description={item.description}
+              isChecked={checkboxStates[index]}
+              setIsChecked={() => setCheckboxStates(prevState => prevState.with(index, !prevState[index]))}
+              onUpdateQuantity={(newQuantity) => handleUpdateQuantity(index, newQuantity)}
+              onRemoveItem={() => handleRemoveItem(index)}
+            />
+          ))}
         </div>
 
-        <div className="select-all" >
-          <input
-              type="checkbox"
-              checked={!checkboxStates.includes(false)}
-              onChange={() => checking(checkboxStates.includes(false))}
-              className="custom-checkbox"
-          />
-          <p className="cart_items">Select all</p>
-        </div>
-
-        <div className="cart_body">
-          <div className="leftside">
-            {cartItems.map((item, index) => (
-              <CartItem
-                key={item.id}
-                title={item.title}
-                image={item.image}
-                price={item.price}
-                quantity={item.quantity}
-                description={item.description}
-                isChecked={checkboxStates[index]}
-                setIsChecked={()=>  setCheckboxStates(prevState => prevState.with(index, !prevState[index]))}
-                onUpdateQuantity={(newQuantity) => handleUpdateQuantity(index, newQuantity)}
-                onRemoveItem={() => handleRemoveItem(index)}
-              />
-            ))}
-          </div>
-
-          <div className="rightside">
-            <p className="cart_items">Number of Items: {countSelectedItems()}</p>
-            <p className="cart_items">Total Amount: ${calculateTotalAmount()}</p>
-          </div>
+        <div className="rightside">
+          <h5>Continue to Checkout:</h5>
+          <p>Number of Items: {countSelectedItems()}</p>
+          <h6 className="cart_items">Total Amount: ${calculateTotalAmount()}</h6> <br/>
+          <button>Checkout</button>
         </div>
       </div>
+    </div>
 
   );
 }

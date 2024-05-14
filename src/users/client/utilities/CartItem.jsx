@@ -47,6 +47,7 @@ export const CartItem = ({ title, image, description, price , quantity,  isCheck
           <div className="item-input">
             <input
                 type="number"
+                name="quantity"
                 min="0"
                 value={localQuantity}
                 onChange={handleQuantityChange}
