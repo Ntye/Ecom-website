@@ -25,7 +25,7 @@ const ClientInterface = () => {
             "id": "3",
             "name": "Magasin",
             "icon": <Fa.FaSearchLocation/>,
-            "link": "/client"
+            "link": "location"
         },
         {
             "id": "4",

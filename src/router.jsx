@@ -5,6 +5,9 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import Index from "./index/Index"
 
+// Employee Interface pages
+const LazyLocation = lazy(() => import('./users/client/pages/Location.jsx'))
+
 // Client Interface pages
 const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
 const LazyLanding = lazy(() => import('./users/client/pages/Landing'))
@@ -122,6 +125,14 @@ const router = createBrowserRouter ([
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyCompte/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'location',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyLocation/>
           </Suspense>
         )
       },

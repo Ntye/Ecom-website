@@ -5,8 +5,6 @@ import {Link} from 'react-router-dom'
 import Image from "../assets/log.svg"
 import swal from 'sweetalert'
 import axios from "axios";
-// import axios from '../api/axios'
-
 
 export default function Login() {
   async function handleSubmit (e) {

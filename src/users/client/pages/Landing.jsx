@@ -53,33 +53,24 @@ useEffect(() => {
       <img src={PinkBot} className="pink-bot"/>
       <img src={Green} className="green"/>
 
-      {/*Breadcrumbs*/}
-      {/*    <div className="breadcrumb">*/}
-      {/*    <Breadcrumb>*/}
-      {/*      <Breadcrumb.Item>*/}
-      {/*        <Link to="/client" className="breadcrumb-item">Home</Link>*/}
-      {/*      </Breadcrumb.Item>*/}
-      {/*      <Breadcrumb.Item >*/}
-      {/*        <Link to="/client" className="breadcrumb-item">Library</Link>*/}
-      {/*      </Breadcrumb.Item>*/}
-      {/*      <Breadcrumb.Item>*/}
-      {/*        <Link to="/client" className="breadcrumb-item-active">Data</Link>*/}
-      {/*      </Breadcrumb.Item>*/}
-      {/*    </Breadcrumb>*/}
-      {/*</div>*/}
-
       <div className="categories">
         <div className="categorie">
-          <img src={Male} className="categorie_image"/>
-          <h5 className="categorie_text">HOMMES</h5>
+          {/*<Link to="http://192.168.1.23/phpmyadmin">*/}
+            <img src={Male} className="categorie_image"/>
+            <h5 className="categorie_text">HOMMES</h5>
+          {/*</Link>*/}
         </div>
         <div className="categorie">
-          <img src={Female} className="categorie_image"/>
-          <h5 className="categorie_text">FEMMES</h5>
+          {/*<Link to="https://github.com/laravel/laravel/blob/master/.env.example">*/}
+            <img src={Female} className="categorie_image"/>
+            <h5 className="categorie_text">FEMMES</h5>
+          {/*</Link>*/}
         </div>
         <div className="categorie">
-          <img src={Child} className="categorie_image"/>
-          <h5 className="categorie_text">ENFANTS</h5>
+          {/*<Link to="https://github.com/minimal-ui-kit/material-kit-react">*/}
+            <img src={Child} className="categorie_image"/>
+            <h5 className="categorie_text">ENFANTS</h5>
+          {/*</Link>*/}
         </div>
       </div>
 
@@ -93,10 +84,6 @@ useEffect(() => {
               alt="First slide"
             />
           </Link>
-          {/*<Carousel.Caption>*/}
-          {/*  <h5>First slide label</h5>*/}
-          {/*  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>*/}
-          {/*</Carousel.Caption>*/}
         </Carousel.Item>
 
         <Carousel.Item>
