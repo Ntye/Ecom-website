@@ -8,9 +8,9 @@ import Index from "./index/Index"
 //Magasinier Interface
 const LazyMagasinier = lazy(() => import('./users/magasinier/components/MagasinierInterface.jsx'))
 const LazyMLanding =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
-const LazyAdd =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
-const LazyView =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
-const LazyModify =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
+const LazyAdd =lazy(() => import('./users/magasinier/pages/AddProduct.jsx'))
+const LazyView =lazy(() => import('./users/magasinier/pages/ViewProduct.jsx'))
+const LazyModify =lazy(() => import('./users/magasinier/pages/ModifyProduct.jsx'))
 
 // Employee Interface pages
 const LazyLocation = lazy(() => import('./users/client/pages/Location.jsx'))
@@ -165,12 +165,12 @@ const router = createBrowserRouter ([
         path: '/magasinier',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
-            <LazyLanding/>
+            <LazyMLanding/>
           </Suspense>
         )
       },
       {
-        path: 'acceuil',
+        path: 'home',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <Navigate to="/magasinier"/>
@@ -178,12 +178,80 @@ const router = createBrowserRouter ([
         ),
       },
       {
-        path: 'location',
+        path: 'add',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
-            <LazyLocation/>
+            <LazyAdd/>
           </Suspense>
         )
+      },
+      {
+        path: 'view',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyView/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'modify',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyModify/>
+          </Suspense>
+        )
+      }
+    ]
+  },
+  {
+    path: '/magasinier',
+    element: (
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+        <LazyMagasinier/>
+      </Suspense>
+    ),
+    children:[
+      {
+        path: '/magasinier',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyMLanding/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'home',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <Navigate to="/magasinier"/>
+          </Suspense>
+        ),
+      }
+    ]
+  },
+  {
+    path: '/caissiere',
+    element: (
+      <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+        <LazyMagasinier/>
+      </Suspense>
+    ),
+    children:[
+      {
+        path: '/caissiere',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyMLanding/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'home',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <Navigate to="/magasinier"/>
+          </Suspense>
+        ),
       }
     ]
   }

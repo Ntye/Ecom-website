@@ -2,7 +2,9 @@
 
 function Landing(props) {
   return (
-    <div></div>
+    <div>
+      Landing
+    </div>
   );
 }
 

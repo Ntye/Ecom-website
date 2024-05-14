@@ -7,21 +7,27 @@ function MagasinierInterface(props) {
   const navItems=[
     {
       "id": "1",
-      "name": "View Items",
-      "icon": <Fa.FaStreetView/>,
-      "link": "view-products"
+      "name": "Home",
+      "icon": <Fa.FaHome/>,
+      "link": "home"
     },
     {
       "id": "2",
-      "name": "Add Item",
-      "icon": <Fa.FaAdjust/>,
-      "link": "add-product"
+      "name": "View Items",
+      "icon": <Fa.FaStreetView/>,
+      "link": "view"
     },
     {
       "id": "3",
+      "name": "Add Item",
+      "icon": <Fa.FaAdjust/>,
+      "link": "add"
+    },
+    {
+      "id": "4",
       "name": "Modifiy Items",
       "icon": <Fa.FaMonero/>,
-      "link": "modify-quantity"
+      "link": "modify"
     },
   ]
 

@@ -2,7 +2,9 @@
 
 function ModifyProduct(props) {
   return (
-    <div></div>
+    <div>
+      Modify
+    </div>
   );
 }
 

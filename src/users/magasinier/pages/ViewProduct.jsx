@@ -2,7 +2,9 @@
 
 function ViewProduct(props) {
   return (
-    <div></div>
+    <div>
+      View
+    </div>
   );
 }
 

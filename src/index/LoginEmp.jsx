@@ -6,7 +6,6 @@ import Image from "../assets/log.svg"
 import { useState } from 'react'
 import Caissiere from '../assets/Cassiere-Interface.svg'
 import Patron from '../assets/Patron-Interface.svg'
-// import axios from '../api/axios'
 
 
 export default function Login() {
