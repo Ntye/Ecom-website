@@ -85,12 +85,4 @@ function Location() {
   )
 }
 
-const dropzoneStyle = {
-  border: '2px dashed #ccc',
-  borderRadius: '4px',
-  padding: '20px',
-  textAlign: 'center',
-  cursor: 'pointer',
-}
-
 export default Location;
