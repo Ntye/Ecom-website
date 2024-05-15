@@ -6,14 +6,14 @@ import Spinner from 'react-bootstrap/Spinner';
 import Index from "./index/Index"
 
 //Magasinier Interface
-const LazyMagasinier = lazy(() => import('./users/magasinier/components/MagasinierInterface.jsx'))
-const LazyMLanding =lazy(() => import('./users/magasinier/pages/Landing.jsx'))
-const LazyAdd =lazy(() => import('./users/magasinier/pages/AddProduct.jsx'))
-const LazyView =lazy(() => import('./users/magasinier/pages/ViewProduct.jsx'))
-const LazyModify =lazy(() => import('./users/magasinier/pages/ModifyProduct.jsx'))
+const LazyMagasinier = lazy(() => import('./users/warehouse/components/MagasinierInterface'))
+const LazyMLanding =lazy(() => import('./users/warehouse//pages/Landing'))
+const LazyAdd =lazy(() => import('./users/warehouse//pages/AddProduct'))
+const LazyView =lazy(() => import('./users/warehouse//pages/ViewProduct'))
+const LazyModify =lazy(() => import('./users/warehouse/pages/ModifyProduct'))
 
 // Employee Interface pages
-const LazyLocation = lazy(() => import('./users/client/pages/Location.jsx'))
+const LazyLocation = lazy(() => import('./users/client/pages/Location'))
 
 // Client Interface pages
 const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
