@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
+use App\Models\Photo;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,16 @@ class ProduitController extends Controller
 
         // Return the products as JSON response
         return response()->json($products);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Categorie::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 
     public function show($codePro)
@@ -72,22 +83,6 @@ class ProduitController extends Controller
         return response()->json(['message' => 'produit inserted successfully'], 201);
     }
 
-//    public function search(Request $request)
-//    {
-//        $nomPro = $request->input('nomPro');
-//
-//        // Validate the input
-//        $request->validate([
-//            'nomPro' => 'required|min:3',
-//        ]);
-//
-//        // Perform the search
-//        $products = Produit::where('nomPro', 'LIKE', "%{$nomPro}%")->get();
-//
-//        // Return the search results to the view
-//        return response()->json(['items' => $products], 201);
-//    }
-
     public function search(Request $request)
     {
         $query = $request->input('query');
@@ -124,5 +119,25 @@ class ProduitController extends Controller
 
         // Return the search results
         return response()->json(['items' => $items, 'categories' => $categories]);
+    }
+
+    public function products_by_category($idCategorie) {
+        $categories = Produit::where('idCategorie', $idCategorie)->get();
+
+        if ($categories->isEmpty()) {
+            return response()->json(['message' => 'No pro found for the specified codePro'], 404);
+        }
+
+        $transformedPhotos = $categories->map(function ($categorie) {
+            return [
+                'codePro' => $categorie->codePro,
+                'idCategorie' => $categorie->idCategorie,
+                'nomPro' => $categorie->nomPro,
+                'prix' => $categorie->prix,
+                'qte' => $categorie->qte,
+                'description' => $categorie->description,
+            ];
+        });
+        return response()->json($transformedPhotos);
     }
 }

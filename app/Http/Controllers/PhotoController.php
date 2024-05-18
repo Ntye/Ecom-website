@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Photo;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,6 +12,11 @@ class PhotoController extends Controller
     public function __invoke()
     {
         return true;
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Produit::class);
     }
 
     public function index () {
@@ -26,6 +32,23 @@ class PhotoController extends Controller
         });
 
         // Return the transformed data as JSON
+        return response()->json($transformedPhotos);
+    }
+
+    public function photos_by_product($codePro) {
+        $photos = Photo::where('codePro', $codePro)->get();
+
+        if ($photos->isEmpty()) {
+            return response()->json(['message' => 'No photos found for the specified codePro'], 404);
+        }
+
+        $transformedPhotos = $photos->map(function ($photo) {
+            return [
+                'idPhoto' => $photo->idPhoto,
+                'lienPhoto' => asset($photo->lienPhoto),
+                'codePro' => $photo->codePro,
+            ];
+        });
         return response()->json($transformedPhotos);
     }
 
