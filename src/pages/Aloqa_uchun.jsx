@@ -4,7 +4,7 @@ const Aloqa_uchun = () => {
   return (
     <header className='bg-gray-100'>
     <div className="w-full max-w-[1000px] px-5 mx-auto">
-      <div className='md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col'>
+      {/*<div className='md:flex md:flex-col lg:flex lg:flex-col xl:flex xl:flex-col'>
         <h3 className='text-3xl font-serif pt-10 pb-5'>Murojat uchun</h3>
         <div className='flex'>
           <b>Call-center:</b>
@@ -18,7 +18,7 @@ const Aloqa_uchun = () => {
           <p>Telegram:</p>
           <a className='text-red-500' href="https://t.me/Xack_XDM" target="_blank">@yuzka_support</a>
         </div>
-      </div>
+  </div>*/}
     </div>
   </header>
   

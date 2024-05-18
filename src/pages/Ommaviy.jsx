@@ -13,8 +13,8 @@ const Ommaviy = () => {
     </h2>
     <b>Atama va tavsiflar</b>
 
-    <p><span className='font-bold'>Axborot vositasi: Sayt</span> Faqat internet tizimi orqali savdo-hizmat ko’rsatishfaoliyati bilan shug’ullanuvchi <Link to='/'>“www.100k.uz”</Link> sayti;</p>
-
+    {/*<p><span className='font-bold'>Axborot vositasi: Sayt</span> Faqat internet tizimi orqali savdo-hizmat ko’rsatishfaoliyati bilan shug’ullanuvchi <Link to='/'>“www.100k.uz”</Link> sayti;</p>
+*/}
     <p><span className='font-bold'>Axborot vositachisi: (Admin)</span>Ijtimoiy tarmoqlar orqali o’ziga tegishli gruppa vayoki kanallarda e’lon berish huqiqiga ega bo’lgan jismoniy yoki yuridik shaxs;Axborot vositachisi sanalgan, hamda Saytning vakili vazifasini bajarib,Sotuvchi va Xaridor o’rtasida elektron reklamaaylanmasini amalgaoshiruvchi O’zbekiston Respublikasida davlat ro’yhatidan o’tgan yuridik shaxsyoki O’zbekiston Respublikasida doimiy yashovchi va daromadidan soliqto’lanishi belgilangan jismoniy shaxs</p>
 
     <p><span className='font-bold'>Sotuvchi:</span> Xaridorlar buyurtmasiga binoan tovarni <Link to='/'>“www.100k.uz”</Link>  Vositachiinternet platformasi orqali masofadan turib sotuvchi hamda tovarni kelgusida Xaridorga yuboruvchi yuridik yoki jismoniy shaxs;</p>

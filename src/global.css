@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  justify-content: center; /* Centrer le contenu horizontalement */
+  align-items: stretch; /* Étirer le contenu verticalement */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px; /* Limiter la largeur du contenu à 1440px */
+  padding: 20px; /* Ajouter un espacement autour du contenu */
+  box-sizing: border-box;
+}

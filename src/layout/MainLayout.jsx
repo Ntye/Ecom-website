@@ -1,4 +1,6 @@
 import React from 'react'
+import "../../src/global.css";
+
 
 //import outlet
 import { Outlet } from 'react-router-dom'

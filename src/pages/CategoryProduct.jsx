@@ -24,7 +24,7 @@ const CategoryProduct = () => {
   return (
     <div className="bg-gray-50 pb-10">
   <div className="max-w-[1000px] w-full px-5 mx-auto pt-9">    
-    <div className="flex gap-5 overflow-x-auto mb-10 py-3">
+    {/*<div className="flex gap-5 overflow-x-auto mb-10 py-3">
       <Link
         to="/Barchasi"
         className={`${
@@ -44,7 +44,7 @@ const CategoryProduct = () => {
           {item}
         </Link>
       ))}
-    </div>
+    </div>*/}
 
     {/* products */}
     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-10 mt-3 my-10">
@@ -70,7 +70,7 @@ const CategoryProduct = () => {
       </li>
     ))
   ) : (
-    <h1 className="text-center font-bold mx-auto">Nimadir xato ketdi...</h1>
+    <h1 className="text-center font-bold mx-auto">...</h1>
   )}
 </ul>
 

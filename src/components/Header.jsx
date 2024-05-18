@@ -5,7 +5,7 @@ import global_icon from "../image/global_icon.png";
 import { Link } from "react-router-dom";
 import down_icon from "../image/down_icon.png";
 import up_icon from "../image/up_icon.png";
-import logo_100k from "../image/logo_100k.png";
+import logo from "../image/logo.svg";
 import search from "../image/search.svg";
 import { data } from "../data/Data";
 
@@ -28,11 +28,11 @@ const Header = () => {
   // function SearchBar({placeholder, data}) {}
 
   return (
-    <header className="bg-[#E30909]">
+    <header className="bg-[#FEE6E6]">
      <div className="w-full max-w-[1000px] px-5 mx-auto">
   <div className="flex flex-col sm:flex-row items-center justify-between">
     <div className="py-2">
-      <div className="flex items-center space-x-4">
+      {/*<div className="flex items-center space-x-4">
         <Link to={playmarket} target="_blank">
           <button className="flex items-center">
             <img
@@ -57,11 +57,11 @@ const Header = () => {
             </p>
           </button>
         </Link>
-      </div>
+  </div>*/}
     </div>
 
     {/* mening profilim */}
-    <div className="flex items-center space-x-2 mt-4 sm:mt-0">
+    {/*<div className="flex items-center space-x-2 mt-4 sm:mt-0">
       <img className="w-[18px]" src={global_icon} alt="global_icon" />
       <Link
         to="aloqa_uchun"
@@ -69,7 +69,7 @@ const Header = () => {
       >
         Aloqa uchun
       </Link>
-    </div>
+</div>*/}
   </div>
 </div>
 
@@ -81,8 +81,8 @@ const Header = () => {
         <Link to="/">
           <img
             className="w-[90px] h-[30px] sm:h-[27px] sm:w-[80px] md:h-[30px] md:w-[80px] lg:w-[105px] lg:h-[25px] xl:w-[110px] xl:h-[35px] mb-2 md:mb-0"
-            src={logo_100k}
-            alt="logo_100k"
+            src={logo}
+            alt="logo"
           />
         </Link>
 
@@ -97,10 +97,10 @@ const Header = () => {
                 }}
                 className="border-2 rounded-l-full py-1 text-black px-5 w-full"
                 type="text"
-                placeholder="Qidiruv..."
+                placeholder="article..."
               />
             </div>
-            <button className="flex items-center bg-red-600 py-1 px-3 rounded-r-full">
+            <button className="flex items-center bg-pink-200 py-1 px-3 rounded-r-full">
               <img
                 className="w-[15px] h-[25px] md:h-[15px] md:w-[20px] sm:w-[20px] lg:w-[20px] lg:h-[20px] xl:w-[20px] xl:h-[20px]"
                 src={search}
@@ -108,7 +108,7 @@ const Header = () => {
               />
             </button>
           </div>
-          {searchedProduct.length > 0 && (
+         {/* {searchedProduct.length > 0 && (
             <ul className="absolute w-full top-full max-h-64 overflow-auto scroll-style-2 bg-white px-2 py-2 space-y-2">
               {searchedProduct &&
                 searchedProduct.map((product) => (
@@ -120,16 +120,11 @@ const Header = () => {
                   </li>
                 ))}
             </ul>
-          )}
+          )} */}
         </div>
         <div>
-          <Link
-            to="https://t.me/yuzkabot"
-            className="hidden sm:inline-block md:inline-block lg:inline-block xl:inline-block"
-          >
-            <b>Telegram</b>
-            <b>bot</b>
-          </Link>
+          
+          
         </div>
       </div>
     </div>

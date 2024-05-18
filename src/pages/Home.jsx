@@ -111,7 +111,7 @@ const Home = () => {
 
       {/* Main */}
       <main className="py-7 bg-gray-100">
-  <div className="w-full max-w-[900px] px-5 mx-auto">
+  {/*<div className="w-full max-w-[900px] px-5 mx-auto">
     <div className="text-center mb-3">
       <h3 className="text-[30px] font-semibold">Ommabop mahsulotlar</h3>
       <Link
@@ -147,13 +147,13 @@ const Home = () => {
           </li>
         ))}
     </ul>
-  </div>
+      </div>*/}
 </main>
 
 
 
       {/* 100k Qulayliklari */}
-      <div className="bg-white pb-20 pt-5">
+      {/*<div className="bg-white pb-20 pt-5">
         <div className="w-full max-w-[900px] px-5 mx-auto">
           <h3 className="text-center text-3xl font-bold py-5">
             100k.uz qulayliklari
@@ -208,7 +208,7 @@ const Home = () => {
             </li>
           </ul>
         </div>
-      </div>
+    </div>*/}
     </>
   );
 };
