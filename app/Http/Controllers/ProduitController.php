@@ -122,22 +122,27 @@ class ProduitController extends Controller
     }
 
     public function products_by_category($idCategorie) {
-        $categories = Produit::where('idCategorie', $idCategorie)->get();
+        $products = Produit::where('idCategorie', $idCategorie)->get();
 
-        if ($categories->isEmpty()) {
+        if ($products->isEmpty()) {
             return response()->json(['message' => 'No pro found for the specified codePro'], 404);
         }
 
-        $transformedPhotos = $categories->map(function ($categorie) {
+
+        $pictureController = new PhotoController();
+
+        $transformedPhotos = $products->map(function ($product) use ($pictureController) {
             return [
-                'codePro' => $categorie->codePro,
-                'idCategorie' => $categorie->idCategorie,
-                'nomPro' => $categorie->nomPro,
-                'prix' => $categorie->prix,
-                'qte' => $categorie->qte,
-                'description' => $categorie->description,
+                'codePro' => $product->codePro,
+                'idCategorie' => $product->idCategorie,
+                'nomPro' => $product->nomPro,
+                'prix' => $product->prix,
+                'qte' => $product->qte,
+                'description' => $product->description,
+                'pictures' => $pictureController->photos_by_product($product->codePro)
             ];
         });
+
         return response()->json($transformedPhotos);
     }
 }

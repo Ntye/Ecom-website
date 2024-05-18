@@ -46,10 +46,10 @@ class PhotoController extends Controller
             return [
                 'idPhoto' => $photo->idPhoto,
                 'lienPhoto' => asset($photo->lienPhoto),
-                'codePro' => $photo->codePro,
             ];
         });
-        return response()->json($transformedPhotos);
+
+        return $transformedPhotos->isEmpty() ? [] : $transformedPhotos;
     }
 
     public function create()

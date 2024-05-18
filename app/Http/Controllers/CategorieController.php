@@ -11,13 +11,6 @@ class CategorieController extends Controller
     public function items()
     {
         $categories = Categorie::all();
-
         return response()->json($categories);
-    }
-
-
-    public function category($idCat)
-    {
-
     }
 }

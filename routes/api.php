@@ -23,7 +23,7 @@ Route::post('/login', [ClientController::class, 'login']);
 
 //On Categorie Table
 Route::get('/categories', [CategorieController::class, 'items']);
-Route::get('/by-category/{idCat}', [CategorieController::class, 'productsByCategory']);
+//Route::get('/by-category/{idCat}', [CategorieController::class, 'productsByCategory']);
 
 //On Product Table
 Route::post('/new-product', [ProduitController::class, 'store']);
