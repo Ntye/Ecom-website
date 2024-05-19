@@ -18,15 +18,6 @@ class ProduitController extends Controller
         return response()->json($products);
     }
 
-    public function category()
-    {
-        return $this->belongsTo(Categorie::class);
-    }
-
-    public function photos()
-    {
-        return $this->hasMany(Photo::class);
-    }
 
     public function show($codePro)
     {
@@ -36,7 +27,11 @@ class ProduitController extends Controller
         // Check if the product exists
         if ($product) {
             // Return the product as a JSON response
-            return response()->json($product);
+            $pictureController = new PhotoController();
+            $photos = $pictureController->photos_by_product($product->codePro);
+
+//            'items' => $items, 'categories' => $categories
+            return response()->json(['product' => $product, 'photos' => $photos]);
         } else {
             // Return a not found response if the product does not exist
             return response()->json(['message' => 'Product not found'], 404);
