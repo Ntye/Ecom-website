@@ -8,12 +8,12 @@ const ProductCard = ({ title, image, description, price }) => {
         {/*<Card.Img variant="top" src={image} className="card_image" />*/}
         <img src={image} className="card_image"/>
         <Card.Body>
-          {/*<Card.Title className="product_title">{title}</Card.Title>*/}
           <Card.Text className="product_description">{description}</Card.Text>
-          <Card.Text className="product_price">Price: ${price}</Card.Text>
+          <Card.Title className="product_title">{title}</Card.Title>
+          <Card.Text className="product_price ">Price: ${price}</Card.Text>
         </Card.Body>
       </Card>
-      <h5 className="product_title">{title}</h5>
+
     </div>
 
   );

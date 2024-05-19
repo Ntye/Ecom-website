@@ -18,14 +18,25 @@
     font-style: normal;
 }
 
-.custom-nav-link {
-    color: rgb(231, 69, 69); /* Default link color */
+.nav-link {
+    color: rgb(231, 69, 69);
     transition: transform 0.3s ease;
+    text-decoration: none;
 }
 
-.custom-nav-link:hover {
-    color: #9c4908; /*Active and hover link color*/
-    transform: translateY(-5px);
+.nav-link:hover {
+    color: #9c4908;
+    transform: translateY(-10px);
+}
+
+.nav-link-active {
+    color: rgb(110, 5, 5);
+    text-decoration: none;
+}
+
+.nav-link-active:hover {
+    color: rgb(110, 5, 5);
+    transform: translateY(0px);
 }
 
 .custom-offcanvas {

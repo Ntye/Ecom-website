@@ -19,6 +19,8 @@ const LazyLocation = lazy(() => import('./users/client/pages/Location'))
 const LazyClient = lazy(() => import('./users/client/components/ClientInterface'))
 const LazyLanding = lazy(() => import('./users/client/pages/Landing'))
 const LazyPanier = lazy(() => import('./users/client/pages/Cart'))
+const LazyCategory = lazy(() => import('./users/client/pages/Category'))
+const LazySingleProduct = lazy(() => import('./users/client/pages/SingleProduct'))
 const LazyCompte = lazy(() => import('./users/client/pages/Profile'))
 const LazySearch = lazy(() => import('./users/client/pages/Search'))
 
@@ -107,7 +109,7 @@ const router = createBrowserRouter ([
         path: '/client',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
-            <LazyLanding/>
+            <Navigate to="acceuil"/>
           </Suspense>
         )
       },
@@ -115,7 +117,7 @@ const router = createBrowserRouter ([
         path: 'acceuil',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
-            <Navigate to="/client"/>
+            <LazyLanding/>
           </Suspense>
     ),
       },
@@ -124,6 +126,22 @@ const router = createBrowserRouter ([
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <LazyPanier/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'product/:param',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazySingleProduct/>
+          </Suspense>
+        )
+      },
+      {
+        path: 'categorie/:param',
+        element: (
+          <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
+            <LazyCategory/>
           </Suspense>
         )
       },

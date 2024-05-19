@@ -37,12 +37,14 @@ export const CartItem = ({ title, image, description, price , quantity,  isCheck
                 alt="Shopping item"
             />
           </div>
+
           <div className="ms-3">
             <h5>{title}</h5>
             <p className="small mb-0">{description}</p>
-            <p className="small mb-0"><b>Unit Price</b>: ${price}</p>
+            <p className="small mb-0"><b>Unit Price</b>: {price} FCFA</p>
           </div>
         </div>
+
         <div className="price m-lg-4">
           <div className="item-input">
             <input
@@ -56,7 +58,7 @@ export const CartItem = ({ title, image, description, price , quantity,  isCheck
           </div>
 
           <div className="total">
-            <h5 className="mb-0">${localQuantity * price}</h5>
+            <h5 className="mb-0">{localQuantity * price}FCFA</h5>
           </div>
 
           <button className="trash-button trash" onClick={onRemoveItem}>

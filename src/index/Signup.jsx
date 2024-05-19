@@ -142,7 +142,6 @@ const Signup = () => {
                   {cities.map((item) => (
                     <option key={item.idVille} value={item.idVille}>{item.libelle}</option>
                   ))}
-
                 </Form.Select>
               </Form.Group>
             </Row>

@@ -13,7 +13,6 @@ import Female from "../../../assets/woman.svg"
 import Child from "../../../assets/child.svg"
 
 import { Carousel } from 'react-bootstrap';
-// import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 import { Link } from "react-router-dom";
 
@@ -21,57 +20,69 @@ import ProductCard from '../utilities/ProductCard.jsx';
 
 import "../components/styles/ClientInterface.css"
 import "./styles/Landing.css"
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
+import axios from "axios";
 
 const Landing = () => {
-const divRef = useRef(null);
-const [isVisible, setIsVisible] = useState(false);
 
-useEffect(() => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.unobserve(entry.target);
+  const [cat1, setCat1] = useState([]);
+  const [cat2, setCat2] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response1 = await axios.get('http://127.0.0.1:8000/api/products-by-category/1002');
+        console.log(response1.data); // Debug: log the photo data
+        setCat1(response1.data);
+
+        const response2 = await axios.get('http://127.0.0.1:8000/api/products-by-category/1000');
+        console.log(response2.data); // Debug: log the photo data
+        setCat2(response2.data);
+
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
       }
-    });
-  });
+    };
 
-  observer.observe(divRef.current);
+    fetchCategories();
+  }, []);
 
-  return () => {
-    if (divRef.current) {
-      observer.unobserve(divRef.current);
-    }
-  };
-}, []);
+  // if (loading) {
+  //   return <p>Loading products...</p>;
+  // }
+
+  if (error) {
+    return <p>Error fetching products: {error}</p>;
+  }
+
 
   return (
     <div>
       {/*Background Images*/}
-      <img src={PinkTop} className="pink-top"/>
-      <img src={PinkBot} className="pink-bot"/>
-      <img src={Green} className="green"/>
+      <img src={PinkTop} className="pink-top" alt="yo"/>
+      <img src={PinkBot} className="pink-bot" alt="yo"/>
+      <img src={Green} className="green" alt="yo"/>
 
       <div className="categories">
-        <div className="categorie">
-          {/*<Link to="http://192.168.1.23/phpmyadmin">*/}
-            <img src={Male} className="categorie_image"/>
-            <h5 className="categorie_text">HOMMES</h5>
-          {/*</Link>*/}
-        </div>
-        <div className="categorie">
-          {/*<Link to="https://github.com/laravel/laravel/blob/master/.env.example">*/}
-            <img src={Female} className="categorie_image"/>
-            <h5 className="categorie_text">FEMMES</h5>
-          {/*</Link>*/}
-        </div>
-        <div className="categorie">
-          {/*<Link to="https://github.com/minimal-ui-kit/material-kit-react">*/}
-            <img src={Child} className="categorie_image"/>
-            <h5 className="categorie_text">ENFANTS</h5>
-          {/*</Link>*/}
-        </div>
+        <Link to="/client/categorie/hommes" className="categorie cat-link">
+          <img src={Male} className="categorie_image"/>
+          <h5 className="categorie_text">HOMMES</h5>
+        </Link>
+
+        <Link to="/client/categorie/femmes" className="categorie cat-link">
+          <img src={Female} className="categorie_image"/>
+          <h5 className="categorie_text">FEMMES</h5>
+        </Link>
+
+        <Link to="/client/categorie/enfants" className="categorie cat-link">
+          <img src={Child} className="categorie_image"/>
+          <h5 className="categorie_text">ENFANTS</h5>
+        </Link>
       </div>
 
       <h5 className="carousel_title">First slide label</h5>
@@ -102,29 +113,25 @@ useEffect(() => {
           />
         </Carousel.Item>
       </Carousel>
-      <div ref={divRef} className={`product_section ${isVisible ? 'animated' : ''}`}>
-        <h5 className="product_list_title">First slide label</h5>
+      <div className='product_section'>
+        <h5 className="product_list_title">Nos Polos</h5>
         <div className="product_list">
-          <ProductCard title="Product 1" image={Female}
-            // description="Description of Product 1"
-                       price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
+          {cat1.slice(0, 6).map(prod => (
+            <Link to={"/client/product/"+prod.codePro} className="prod-link">
+              <ProductCard key={prod.codePro} title={prod.nomPro} image={prod.pictures[0].lienPhoto} price={20.99}/>
+            </Link>
+          ))}
         </div>
       </div>
 
-      <div ref={divRef} className={`product-section ${isVisible ? 'animated' : ''}`}>
-        <h5 className="product_list_title">First slide label</h5>
+      <div className='product-section'>
+        <h5 className="product_list_title">Nos T-Shits</h5>
         <div className="product_list">
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
-          <ProductCard title="Product 1" image={Female} price={20.99}/>
+          {cat2.slice(0, 6).map(prod => (
+            <Link to={"/client/product/"+prod.codePro} className="prod-link">
+              <ProductCard key={prod.codePro} title={prod.nomPro} image={prod.pictures[0].lienPhoto} price={20.99}/>
+            </Link>
+          ))}
         </div>
       </div>
     </div>

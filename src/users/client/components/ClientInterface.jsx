@@ -12,7 +12,7 @@ const ClientInterface = () => {
             "id": "1",
             "name": "Acceuil",
             "icon": <Fa.FaHome/>,
-            "link": "/client"
+            "link": "acceuil"
         },
         {
             "id": "2",
@@ -20,12 +20,12 @@ const ClientInterface = () => {
             "icon": <Fa.FaShoppingCart/>,
             "link": "panier"
         },
-        {
-            "id": "3",
-            "name": "Magasin",
-            "icon": <Fa.FaSearchLocation/>,
-            "link": "location"
-        },
+        // {
+        //     "id": "3",
+        //     "name": "Magasin",
+        //     "icon": <Fa.FaSearchLocation/>,
+        //     "link": "location"
+        // },
         {
             "id": "4",
             "name": "Compte",

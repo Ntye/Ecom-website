@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import * as Fa from 'react-icons/fa'
 
-import { useLocation } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 
 import "./styles/NavbarC.css"
 import "../client/components/styles/ClientInterface.css"
@@ -25,7 +25,7 @@ function NavbarC({navItems, show}) {
       <>
         <Navbar key={'lg'} expand={'lg'} className=" ">
           <Container fluid>
-            <Navbar.Brand href="#"> <img src={Logo} className='logo' alt='/'/> </Navbar.Brand>
+            <Navbar.Brand> <img src={Logo} className='logo' alt='/'/> </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'lg'}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${'lg'}`}
@@ -49,7 +49,7 @@ function NavbarC({navItems, show}) {
                         className="search-input"
                         aria-label="Search"
                       />
-                      <Button variant="outline-success" className='custom-searchbutton'>
+                      <Button variant="outline-success" className='custom-searchbutton' href="/client/search">
                         <Fa.FaSearch />
                       </Button>
                     </Form>

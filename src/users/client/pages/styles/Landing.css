@@ -1,3 +1,9 @@
+.cat-link {
+  text-decoration: none;
+  color: black;
+  align-items: center;
+}
+
 /*Carousel*/
 .carousel_title {
   margin-left: 145px;
@@ -7,8 +13,8 @@
   font-style: normal;
 }
 .custom-carousel {
-  width: 85%; /* Adjust the width percentage as needed */
-  margin: auto; /* To center the carousel horizontally */
+  width: 85%;
+  margin: auto;
   margin-bottom: 50px;
   border-radius: 50px;
 }
@@ -84,6 +90,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.prod-link {
+  --bs-link-decoration: none;
+  text-decoration: none;
 }
 
 
