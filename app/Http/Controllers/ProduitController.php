@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categorie;
-use App\Models\Photo;
 use App\Models\Produit;
 use Illuminate\Http\Request;
 
@@ -16,6 +15,18 @@ class ProduitController extends Controller
 
         // Return the products as JSON response
         return response()->json($products);
+    }
+
+    public function showonly($codePro)
+    {
+        $product = Produit::where('codePro', $codePro)->first();
+
+        if ($product) {
+            return $product;
+        } else {
+            // Return a not found response if the product does not exist
+            return response()->json(['message' => 'Product not found'], 404);
+        }
     }
 
 
@@ -40,7 +51,6 @@ class ProduitController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the incoming request data
         $validatedData = $request->validate([
             'codePro' => 'required',
             'idCategorie' => 'required',
@@ -56,7 +66,6 @@ class ProduitController extends Controller
             'promo' => '',
         ]);
 
-        // Create a new produit instance
         $produit = new Produit();
         $produit->codePro = $validatedData['codePro'];
         $produit->idCategorie = $validatedData['idCategorie'];
@@ -71,10 +80,8 @@ class ProduitController extends Controller
         $produit->codeArrivage = "09";
         $produit->promo = 0;
 
-        // Save the produit to the database
         $produit->save();
 
-        // Return a response indicating success
         return response()->json(['message' => 'produit inserted successfully'], 201);
     }
 
