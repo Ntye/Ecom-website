@@ -22,14 +22,19 @@ Route::get('/cities', [VilleController::class, 'index']);
 //On Client Table
 Route::post('/sign-in', [ClientController::class, 'signin']);
 Route::post('/login', [ClientController::class, 'login']);
+Route::delete('/client/{matr}', [ClientController::class, 'destroy']);
+Route::put('/client/{matr}', [ClientController::class, 'update']);
 
 
 //On Categorie Table
 Route::get('/categories', [CategorieController::class, 'items']);
 Route::get('/category/{idCat}', [CategorieController::class, 'show']);
 Route::get('/class/{idCatPrefix}', [CategorieController::class, 'sub_category']);
+Route::delete('/category/{idCat}', [CategorieController::class, 'destroy']);
+Route::put('/category/{idCat}', [CategorieController::class, 'update']);
 
-//On Product Table
+
+//On Product Tablcategory
 Route::post('/new-product', [ProduitController::class, 'store']);
 Route::get('/all-products', [ProduitController::class, 'index']);
 Route::get('/products/{codePro}', [ProduitController::class, 'show']);
@@ -58,5 +63,7 @@ Route::post('/commande/search', [CommandeController::class, 'search']);
 //On Gestionnaire Table
 Route::post('/gestionnaire/singup', [GestionnaireController::class, 'signup']);
 Route::post('/gestionnaire/login', [GestionnaireController::class, 'login']);
+Route::delete('/gestionnaire/{idGest}', [GestionnaireController::class, 'destroy']);
+Route::put('/gestionnaire/{idGest}', [GestionnaireController::class, 'update']);
 
 

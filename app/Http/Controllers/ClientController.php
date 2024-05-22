@@ -84,4 +84,39 @@ class ClientController extends Controller
             return response()->json(['message' => 'client inserted successfully'], 201);
         }
     }
+
+    public function update(Request $request, $matr){
+        $client = Client::findOrFail($matr);
+        $validatedData = $request->validate([
+            'matr' => 'sometimes',
+            'nom' => 'sometimes',
+            'sexe' => 'sometimes',
+            'dateNaiss' => 'sometimes',
+            'idVille' => 'sometimes',
+            'mobile' => 'sometimes',
+            'creation' => 'sometimes',
+            'point' => 'sometimes',
+            'montantTontine' => 'sometimes',
+            'user' => 'sometimes',
+            'typeChat' => 'sometimes',
+            'pwd' => 'sometimes',
+            'chatID' => 'sometimes',
+        ]);
+        $client->update($validatedData);
+        return response()->json(['message' => 'client modified successfully'], 201);
+    }
+
+    public function destroy($matr)
+    {
+         
+        $client = Client::where('matr', $matr)->first();
+        if (!$client) {
+            return response()->json(['message' => 'No client found for the specified matr'], 404);
+        }
+        $client->delete();
+        // Retourner une réponse de succès
+        return response()->json(['message' => 'Client supprimé avec succès']);
+    }
+
+    
 }

@@ -21,4 +21,14 @@ class Categorie extends Model
      * @var string
      */
     protected $table = 'categorie';
+
+    protected $primaryKey = 'idCat';
+
+    
+
+
+    protected $fillable = [
+        'idCat',
+        'nomCat',
+    ];
 }

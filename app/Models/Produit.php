@@ -24,6 +24,7 @@ class Produit extends Model
 
     protected $primaryKey = 'codePro';
 
+
     protected $fillable = [
             'codePro',
             'idCategorie',

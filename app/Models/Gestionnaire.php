@@ -31,4 +31,15 @@ class Gestionnaire extends Model
             }
         });
     }
+    protected $primaryKey = 'idGest';
+
+    protected $fillable = [
+        'idGest',
+        'nomGest',
+        'typeGest' ,
+        'login' ,
+        'pwd' ,
+        'actif' ,
+        'mobile' ,
+    ];
 }

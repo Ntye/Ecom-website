@@ -53,7 +53,7 @@ class GestionnaireController extends Controller
             'pwd' => 'required',
             'typeGest' => 'required',
         ]);
-        // Retrieve the clients with the specified codePro from the database
+        // Retrieve the clients with the specified idGest from the database
         $gestionnaire = Gestionnaire::where('login', $validatedData['login'])->first();
 
         // Check if the clients exists
@@ -67,6 +67,36 @@ class GestionnaireController extends Controller
             return response()->json(['message' => 'Not Found'], 404);
         }
     }
+
+    public function destroy($idGest)
+    {
+         
+        $gestionnaire = Gestionnaire::where('idGest', $idGest)->first();
+        if (!$gestionnaire) {
+            return response()->json(['message' => 'No employee found for the specified idGest'], 404);
+        }
+        $gestionnaire->delete();
+        // Retourner une réponse de succès
+        return response()->json(['message' => 'Employe supprimé avec succès']);
+    }
+
+
+
+    public function update(Request $request, $idGest){
+        $gestionnaire = Gestionnaire::findOrFail($idGest);
+        $validatedData = $request->validate([
+            'idGest' => 'sometimes',
+            'nomGest' => 'sometimes',
+            'typeGest' => 'sometimes',
+            'login' => 'sometimes',
+            'pwd' => 'sometimes',
+            'actif' => 'sometimes',
+            'mobile' => 'sometimes',
+        ]);
+        $gestionnaire->update($validatedData);
+        return response()->json(['message' => 'gestionnaire modified successfully'], 201);
+    }
+
 
 
     

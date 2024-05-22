@@ -79,6 +79,6 @@ class LigneCommandeController extends Controller
         $ligneCom->save();
 
         // Return a response indicating success
-        return response()->json(['message' => 'client inserted successfully'], 201);
+        return response()->json(['message' => 'command inserted successfully'], 201);
     }
 }

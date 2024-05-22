@@ -32,4 +32,21 @@ class Client extends Model
             }
         });
     }
+    protected $primaryKey = 'matr';
+
+    protected $fillable = [
+        'nom' ,
+        'sexe' ,
+        'dateNaiss' ,
+        'idVille' ,
+        'mobile' ,
+        'creation' ,
+        'matr' ,
+        'point' ,
+        'montantTontine' ,
+        'user' ,
+        'typeChat' ,
+        'pwd' ,
+    ];
+        
 }
