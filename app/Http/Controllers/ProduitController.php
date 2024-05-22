@@ -87,8 +87,6 @@ class ProduitController extends Controller
 
     
 
-
-
     public function products_by_category($idCategorie) {
         $products = Produit::where('idCategorie', $idCategorie)->get();
 
@@ -150,7 +148,17 @@ class ProduitController extends Controller
         return response()->json(['message' => 'produit modified successfully'], 201);
     }
 
+    public function deleteAll($idCategorie){
+
+       $pictureController = new PhotoController();
+       $products = Produit::where('idCategorie', $idCategorie)->get();
 
 
+       foreach ($products as $product) {
+           $pictureController->deleteAll($product->codePro);
+           $product->delete();
+        }
 
+        return Produit::where('idCategorie', $idCategorie)->delete();
+    }
 }

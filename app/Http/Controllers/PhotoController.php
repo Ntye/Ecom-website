@@ -87,4 +87,9 @@ class PhotoController extends Controller
 
         return response()->json(['message' => 'Photo inserted successfully'], 201);
     }
+
+
+    public function deleteAll($codePro){
+        $photos = Photo::where('codePro', $codePro)->delete();
+    }
 }

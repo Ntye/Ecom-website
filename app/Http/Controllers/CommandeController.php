@@ -18,7 +18,7 @@ class CommandeController extends Controller
 
 
         if (!$commandes) {
-            return response()->json(['message' => 'No photos found for the specified codePro'], 400);
+            return response()->json(['message' => 'No commands found for the specified codePro'], 400);
         }
 
         $ligneComController = new LigneCommandeController();
@@ -26,7 +26,7 @@ class CommandeController extends Controller
         $request = new Request();
 
 
-        $transformedPhotos = $commandes->map(function ($commande) use ($ligneComController, $request) {
+        $transformedCommand = $commandes->map(function ($commande) use ($ligneComController, $request) {
             $request->merge(['idCommande' => $commande->idCommande]);
 
             $let = $ligneComController->search($request);
@@ -95,5 +95,41 @@ class CommandeController extends Controller
         // Return a response indicating success
         return response()->json(['message' => 'commande inserted successfully', $commande->idCommande], 201);
 
+
     }
+
+    public function destroy($idCommande)
+    {
+         
+        $commande = Commande::where('$idCommande', $$idCommande)->first();
+        if (!$commande) {
+            return response()->json(['message' => 'No pro found for the specified $idCom'], 404);
+        }
+        $commande->delete();
+        // Retourner une réponse de succès
+        return response()->json(['message' => 'commande supprimé avec succès']);
+    }
+
+
+
+    public function update(Request $request, $codePro){
+        $commande = Commande::findOrFail($codePro);
+        $validatedData = $request->validate([
+            'codePro' => 'sometimes',
+            'idCategorie' => 'sometimes',
+            'nomPro' => 'sometimes',
+            'prixAchat' => 'sometimes',
+            'qte' => 'sometimes',
+            'description' => 'sometimes',
+            'dateInsertion' => 'sometimes',
+            'prix' => 'sometimes',
+            'codeArrivage' => 'sometimes',
+            'actif' => 'sometimes',
+            'pourcentage' => 'sometimes',
+            'promo' => 'sometimes',
+        ]);
+        $commande->update($validatedData);
+        return response()->json(['message' => 'commande modified successfully'], 201);
+    }
+
 }
