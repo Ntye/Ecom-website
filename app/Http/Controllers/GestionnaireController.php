@@ -97,7 +97,16 @@ class GestionnaireController extends Controller
         return response()->json(['message' => 'gestionnaire modified successfully'], 201);
     }
 
+    public function isCashier($idGest) : bool
+    {
 
 
-    
+        $cashier = Gestionnaire::where('idGest', $idGest)->where('typeGest', 0)->get();
+        if($cashier) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }

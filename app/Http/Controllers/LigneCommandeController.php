@@ -81,4 +81,33 @@ class LigneCommandeController extends Controller
         // Return a response indicating success
         return response()->json(['message' => 'command inserted successfully'], 201);
     }
+
+
+    public function deleteAll($idCommande){
+        $ligneCommande = LigneCommande::where('idCommande', $idCommande)->delete();
+        return response()->json(['message' => 'Ligncommand deleted successfully'], 201);
+    }
+
+
+    public function updateLigneCom(Request $request, LigneCommande $ligneCommande)
+    {
+        $validatedData = $request->validate([
+            'quantité' => 'sometimes',
+            'taille' => 'sometimes',
+            'couleur' => 'sometimes',
+            'disponible' => 'sometimes',
+        ]);
+        $ligneCommande -> quantité = $request->quantité;
+        $ligneCommande -> taille = $request->taille;
+        $ligneCommande -> couleur = $request->couleur;
+        $ligneCommande -> disponible = $request->disponible;
+
+        if($ligneCommande->save()) {
+            return response()->json(['message' => 'Ligncommand modified successfully'], 201);
+        }
+        return response()->json(['message' => 'Error'], 404);
+
+    }
+
+
 }

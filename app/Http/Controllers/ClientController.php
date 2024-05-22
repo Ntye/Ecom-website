@@ -118,5 +118,7 @@ class ClientController extends Controller
         return response()->json(['message' => 'Client supprimé avec succès']);
     }
 
+
+
     
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FactureController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //On City Table
 Route::get('/cities', [VilleController::class, 'index']);
+
 
 //On Client Table
 Route::post('/sign-in', [ClientController::class, 'signin']);
@@ -53,10 +55,16 @@ Route::get('/product-pictures/{codePro}', [PhotoController::class, 'photos_by_pr
 Route::post('/l-commande/save', [LigneCommandeController::class, 'save']);
 Route::post('/l-commande/search', [LigneCommandeController::class, 'search']);
 Route::post('/l-commande/client', [LigneCommandeController::class, 'get_one']);
+route::delete('/l-commande/{idLignCom}', [LigneCommandeController::class, 'deleteAll']);
+Route::put('/l-commande/{ligneCommande}', [LigneCommandeController::class, 'updateLigneCom']);
+
 
 //On Commande Table
 Route::post('/commande/save', [CommandeController::class, 'save']);
 Route::post('/commande/search', [CommandeController::class, 'search']);
+Route::delete('/commande/{idCommande}', [CommandeController::class, 'deleteAll']);
+Route::put('/commande/{idCommande}', [CommandeController::class, 'updateCommande']);
+
 //Route::get('/commande/{nomClient}', [CommandeController::class, 'search']);
 
 
@@ -65,5 +73,11 @@ Route::post('/gestionnaire/singup', [GestionnaireController::class, 'signup']);
 Route::post('/gestionnaire/login', [GestionnaireController::class, 'login']);
 Route::delete('/gestionnaire/{idGest}', [GestionnaireController::class, 'destroy']);
 Route::put('/gestionnaire/{idGest}', [GestionnaireController::class, 'update']);
+
+
+//On Facture table
+Route::post('/facture/createF', [FactureController::class, 'createF']);
+Route::delete('/facture/{idFacture}', [FactureController::class, 'deleteAll']);
+Route::put('/facture/{facture}', [FactureController::class, 'updateF']);
 
 

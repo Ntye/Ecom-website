@@ -14,6 +14,10 @@ class LigneCommande extends Model
      * @var bool
      */
     public $timestamps = false;
+    public mixed $taille;
+    public mixed $quantité;
+    public mixed $disponible;
+    public mixed $couleur;
 
     /**
      * The table associated with the model.
@@ -32,4 +36,16 @@ class LigneCommande extends Model
             }
         });
     }
+
+    protected $primaryKey = 'idLignCom';
+
+    protected $fillable = [
+        'idLignCom',
+        'idCommande',
+        'codePro',
+        'quantité',
+        'taille',
+        'couleur',
+        'disponible',
+    ];
 }

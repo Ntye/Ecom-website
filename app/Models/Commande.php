@@ -21,4 +21,25 @@ class Commande extends Model
      * @var string
      */
     protected $table = 'commande';
+
+    protected $primaryKey = 'idCommande';
+    protected $fillable = [
+        'idCommande',
+        'dateCom',
+        'montant' ,
+        'nomClient',
+        'mobile' ,
+        'adresse',
+        'livrer' ,
+        'avance',
+        'remise' ,
+        'type' ,
+        'idVille' ,
+        'commentaire',
+        'codePro' ,
+        'quantite' ,
+        'taille',
+        'couleur' ,
+        'disponible' ,
+    ];
 }

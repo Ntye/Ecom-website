@@ -22,6 +22,8 @@ class Client extends Model
      */
     protected $table = 'clientcarte';
 
+
+
     protected static function boot()
     {
         parent::boot();

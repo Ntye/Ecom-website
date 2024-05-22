@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commande;
+use App\Models\LigneCommande;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CommandeController extends Controller
@@ -18,7 +20,7 @@ class CommandeController extends Controller
 
 
         if (!$commandes) {
-            return response()->json(['message' => 'No photos found for the specified codePro'], 400);
+            return response()->json(['message' => 'No commands found for the specified codePro'], 400);
         }
 
         $ligneComController = new LigneCommandeController();
@@ -26,7 +28,7 @@ class CommandeController extends Controller
         $request = new Request();
 
 
-        $transformedPhotos = $commandes->map(function ($commande) use ($ligneComController, $request) {
+        $transformedCommand = $commandes->map(function ($commande) use ($ligneComController, $request) {
             $request->merge(['idCommande' => $commande->idCommande]);
 
             $let = $ligneComController->search($request);
@@ -42,7 +44,7 @@ class CommandeController extends Controller
 //
 //        return response()->json($transformedPhotos);
 //        return $commandes;
-        return response()->json(["commandes"=> $transformedPhotos, "nomClient"=> $validatedData['nomClient']], 200);
+        //return response()->json(["commandes"=> $transformedPhotos, "nomClient"=> $validatedData['nomClient']], 200);
     }
 
     public function save(Request $request)
@@ -95,5 +97,48 @@ class CommandeController extends Controller
         // Return a response indicating success
         return response()->json(['message' => 'commande inserted successfully', $commande->idCommande], 201);
 
+
     }
+
+    public function deleteAll($idCommande){
+
+        $ligneCommandeController = new LigneCommandeController();
+        $ligneCommandes = LigneCommande::where('idCommande', $idCommande)->get();
+
+        foreach ($ligneCommandes as $ligneCommande) {
+            $ligneCommandeController->deleteAll($ligneCommande->idCommande);
+        }
+        $commande =  Commande::where('idCommande', $idCommande)->delete();
+        if($commande){
+            return response()->json(['message' => 'command modified successfully'], 201);
+        }
+        return response()->json(['message' => 'Error'], 404);
+
+    }
+
+
+    public function updateCommande(Request $request, $idCommande) : jsonResponse{
+        $commande = Commande::findOrFail($idCommande);
+        $validatedData = $request->validate([
+            'dateCom' => 'sometimes',
+            'montant' => 'sometimes',
+            'nomClient' => 'sometimes',
+            'mobile' => 'sometimes',
+            'adresse' => 'sometimes',
+            'livrer' => 'sometimes',
+            'avance' => 'sometimes',
+            'remise' => 'sometimes',
+            'type' => 'sometimes',
+            'idVille' => 'sometimes',
+            'commentaire' => 'sometimes',
+            'codePro' => 'sometimes',
+            'quantite' => 'sometimes',
+            'taille' => 'sometimes',
+            'couleur' => 'sometimes',
+            'disponible' => 'sometimes',
+        ]);
+        $commande->update($validatedData);
+        return response()->json(['message' => 'command modified successfully'], 201);
+    }
+
 }

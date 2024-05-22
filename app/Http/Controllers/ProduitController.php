@@ -87,9 +87,9 @@ class ProduitController extends Controller
 
     
 
+    public function products_by_category($idCategorie)
+    {
 
-
-    public function products_by_category($idCategorie) {
         $products = Produit::where('idCategorie', $idCategorie)->get();
 
         if ($products->isEmpty()) {
@@ -119,18 +119,25 @@ class ProduitController extends Controller
     public function destroy($codePro)
     {
          
-        $produit = Produit::where('codePro', $codePro)->first();
-        if (!$produit) {
+        $products = Produit::where('codePro', $codePro)->first();
+        if (!$products) {
             return response()->json(['message' => 'No pro found for the specified codePro'], 404);
         }
-        $produit->delete();
+        $pictureController = new PhotoController();
+       /* foreach ($products as $product) {
+            $pictureController->deleteAll($product->codePro);
+        }*/
+        $pictureController->deleteAll($products->codePro);
+        $products->delete();
         // Retourner une réponse de succès
-        return response()->json(['message' => 'Produit supprimé avec succès']);
+        return response()->json(['message' => 'Produits supprimés avec succès']);
     }
 
 
 
-    public function update(Request $request, $codePro){
+    public function update(Request $request, $codePro)
+    {
+
         $produit = Produit::findOrFail($codePro);
         $validatedData = $request->validate([
             'codePro' => 'sometimes',
@@ -150,7 +157,19 @@ class ProduitController extends Controller
         return response()->json(['message' => 'produit modified successfully'], 201);
     }
 
+   public function deleteAll($idCategorie){
 
+       $pictureController = new PhotoController();
+       $products = Produit::where('idCategorie', $idCategorie)->get();
+
+
+       foreach ($products as $product) {
+           $pictureController->deleteAll($product->codePro);
+           $product->delete();
+        }
+
+        return Produit::where('idCategorie', $idCategorie)->delete();
+    }
 
 
 }
