@@ -52,10 +52,6 @@ const Landing = () => {
     fetchCategories();
   }, []);
 
-  // if (loading) {
-  //   return <p>Loading products...</p>;
-  // }
-
   if (error) {
     return <p>Error fetching products: {error}</p>;
   }

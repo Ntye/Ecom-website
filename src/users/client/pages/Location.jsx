@@ -7,29 +7,7 @@ function Location() {
   const [codePro, setCodePro] = useState('');
   const [message, setMessage] = useState('');
 
-  const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchPhotos = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:8000/api/photos');
-        console.log(response.data); // Debug: log the photo data
-        setPhotos(response.data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-    fetchPhotos();
-  }, []);
-
-
-  if (loading) {
-    return <p>Loading photos...</p>;
-  }
 
   if (error) {
     return <p>Error fetching photos: {error}</p>;
@@ -72,15 +50,6 @@ function Location() {
         <button type="submit">Upload</button>
       </form>
       {message && <p>{message}</p>}
-
-      <h2>Photo Gallery</h2>
-      <div>
-        {photos.map(picture => (
-          <div key={picture.idPhoto}>
-            <img src={picture.lienPhoto} width="200"/>
-          </div>
-        ))}
-      </div>
     </div>
   )
 }

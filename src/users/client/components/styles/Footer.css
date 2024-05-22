@@ -1,5 +1,147 @@
+/*.footer {*/
+/*    height: 200px;*/
+/*    width: 100%;*/
+/*    background-color: #FEE6E6;*/
+/*}*/
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.App {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+    a:hover {
+        color: #747bff;
+    }
+    button {
+        background-color: #f9f9f9;
+    }
+}
+
 .footer {
-    height: 200px;
-    width: 100%;
-    background-color: #FEE6E6;
+    background-color: #FEE6E6; /* Light grey */
+    color: #333; /* Dark grey */
+    padding: 20px 0;
+    width: 100%; /* Make sure footer takes full width */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin-left: -20px;
+    padding: 10px 20px;
+}
+
+.des {
+    margin-top: -15px;
+}
+
+.footer-title {
+    color: #333; /* Dark grey */
+    margin-bottom: 15px;
+}
+
+.footer-description, .footer-contact span, .footer-links a, .footer-form, .footer-bottom {
+    color: #666; /* Medium grey */
+}
+
+.footer-contact span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-socials a {
+    color: #666; /* Medium grey */
+    margin-right: 30px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+    color: #ffb6c1; /* Light pastel pink */
+}
+
+.socials {
+    margin-right: 20px;
+    width: 25px;
+    height: 25px;
+}
+
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #666; /* Medium grey */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #ffb6c1; /* Light pastel pink */
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.footer-button {
+    background-color: #ffb6c1; /* Light pastel pink */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-button:hover {
+    background-color: #ff7f9a; /* Darker pastel pink */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #834d4d;
+    margin-top: 20px;
 }

@@ -2,7 +2,6 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import Spinner from 'react-bootstrap/Spinner';
-
 import Index from "./index/Index"
 
 //Magasinier Interface
@@ -98,7 +97,7 @@ const router = createBrowserRouter ([
     )
   },
   {
-    path: '/client',
+    path: '/:nom_client',
     element: (
       <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
         <LazyClient/>
@@ -106,7 +105,7 @@ const router = createBrowserRouter ([
     ),
     children:[
       {
-        path: '/client',
+        path: '/:nom_client',
         element: (
           <Suspense fallback={<><h2>Loading</h2> <br/> <Spinner animation="border" variant="secondary" /></>}>
             <Navigate to="acceuil"/>

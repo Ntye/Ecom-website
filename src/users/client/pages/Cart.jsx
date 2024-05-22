@@ -3,48 +3,16 @@ import {CartItem} from "../utilities/CartItem.jsx";
 import {useEffect, useState} from "react";
 import Green from "../../../assets/Cart_Green.svg";
 import {Button, Col, Form, Row} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 
 
 export default function Cart() {
-  const [cartItems, setCartItems] = useState([
-    {
-      "id": 1,
-      "title": "iPhone 11 Pro",
-      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-      "price": 450,
-      "quantity": 1,
-      "description": "256GB, Navy Blue"
-    },
-    {
-      "id": 2,
-      "title": "Samsung Galaxy S20",
-      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-      "price": 700,
-      "quantity": 1,
-      "description": "128GB, Cosmic Gray"
-    },
-    {
-      "id": 3,
-      "title": "iPhone 11 Pro",
-      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-      "price": 450,
-      "quantity": 1,
-      "description": "256GB, Navy Blue"
-    },
-    {
-      "id": 4,
-      "title": "Samsung Galaxy S20",
-      "image": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp",
-      "price": 700,
-      "quantity": 1,
-      "description": "128GB, Cosmic Gray"
-    }
-  ])
-
+  const [cartItems, setCartItems] = useState([])
   const updatedCartItems = [...cartItems];
   const [cities, setCities] = useState([]);
+  const {nom_client}= useParams()
+  const data1 = {nomClient : nom_client}
 
   const handleUpdateQuantity = (index, newQuantity) => {
     // const updatedCartItems = [...cartItems];
@@ -64,7 +32,7 @@ export default function Cart() {
     let total = 0;
     cartItems.forEach((item, index) => {
       if (checkboxStates[index]) {
-        total += updatedCartItems[index].quantity* item.price
+        total += updatedCartItems[index].product.quantite* item.montant
       }
     });
     return total;
@@ -89,16 +57,35 @@ export default function Cart() {
     const fetchCities = async () => {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/cities')
-
         const { data } = response;
-
         setCities(data);
+
       } catch (error) {
         console.error('Error fetching cities:', error);
       }
     };
 
     fetchCities();
+  }, []);
+
+
+  useEffect(() => {
+    const fetchProduct = () => {
+      axios.post('http://127.0.0.1:8000/api/commande/search', data1)
+        .then(response => {
+          console.log(response.data);
+          setCartItems(response.data.commandes)
+          // console.log(cartItems)
+        })
+        .catch(error => {
+          console.error(error);
+        })
+        .finally(() => {
+          console.log('Request completed');
+        });
+    };
+
+    fetchProduct();
   }, []);
 
   const selectedItems = cartItems.filter((_, index) => checkboxStates[index])
@@ -112,31 +99,23 @@ export default function Cart() {
         <p className="cart_items">Number of Items: {cartItems.length}</p>
       </div>
 
-      <div className="select-all">
-        <input
-          type="checkbox"
-          checked={!checkboxStates.includes(false)}
-          onChange={() => checking(checkboxStates.includes(false))}
-          className="custom-checkbox"
-        />
-        <p className="cart_items">Select all</p>
-      </div>
-
       <div className="cart_body">
         <div className="top">
           {cartItems.map((item, index) => (
-            <CartItem
-              key={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              quantity={item.quantity}
-              description={item.description}
-              isChecked={checkboxStates[index]}
-              setIsChecked={() => setCheckboxStates(prevState => prevState.with(index, !prevState[index]))}
-              onUpdateQuantity={(newQuantity) => handleUpdateQuantity(index, newQuantity)}
-              onRemoveItem={() => handleRemoveItem(index)}
-            />
+            <div>
+              <CartItem
+                key={item.nomClient}
+                title={item.product.nomPro}
+                image={item.product.couleur}
+                price={item.montant}
+                quantity={item.product.quantite}
+                description={item.product.description}
+                isChecked={checkboxStates[index]}
+                setIsChecked={() => setCheckboxStates(prevState => prevState.with(index, !prevState[index]))}
+                onUpdateQuantity={(newQuantity) => handleUpdateQuantity(index, newQuantity)}
+                onRemoveItem={() => handleRemoveItem(index)}
+              />
+            </div>
           ))}
         </div>
 
@@ -183,11 +162,10 @@ export default function Cart() {
                 <tbody className="tbody">
                   {selectedItems.map((item) => (
                     <tr key={item.id} className="selected-item">
-                      <td>{item.title} <br/>
-                        {item.description}
+                      <td>{item.product.nomPro} <br/>
                       </td>
-                      <td>{item.quantity}</td>
-                      <td>{item.price*item.quantity}</td>
+                      <td>{item.product.quantite}</td>
+                      <td>{item.montant*item.product.quantite}</td>
                     </tr>
                   ))}
                 </tbody>

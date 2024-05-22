@@ -5,8 +5,13 @@ import {Link} from 'react-router-dom'
 import Image from "../assets/log.svg"
 import swal from 'sweetalert'
 import axios from "axios";
+import {useAuth} from "../users/client/components/Auth.jsx";
 
 export default function Login() {
+
+  const {auth, login} = useAuth()
+  let linkname = ""
+
   async function handleSubmit (e) {
     e.preventDefault();
     let error = {
@@ -39,8 +44,14 @@ export default function Login() {
           title: "Login Successful",
           icon: "success",
         })
+
+        login(data.user)
+        linkname = data.user
+
+        console.log(linkname)
+
         setTimeout(() => {
-          window.location.href = "/client";
+          window.location.href = "/"+`${linkname}`;
         }, 2000);
 
       }catch (error) {
