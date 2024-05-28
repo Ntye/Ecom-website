@@ -87,9 +87,7 @@ class ProduitController extends Controller
 
     
 
-    public function products_by_category($idCategorie)
-    {
-
+    public function products_by_category($idCategorie) {
         $products = Produit::where('idCategorie', $idCategorie)->get();
 
         if ($products->isEmpty()) {
@@ -119,25 +117,18 @@ class ProduitController extends Controller
     public function destroy($codePro)
     {
          
-        $products = Produit::where('codePro', $codePro)->first();
-        if (!$products) {
+        $produit = Produit::where('codePro', $codePro)->first();
+        if (!$produit) {
             return response()->json(['message' => 'No pro found for the specified codePro'], 404);
         }
-        $pictureController = new PhotoController();
-       /* foreach ($products as $product) {
-            $pictureController->deleteAll($product->codePro);
-        }*/
-        $pictureController->deleteAll($products->codePro);
-        $products->delete();
+        $produit->delete();
         // Retourner une réponse de succès
-        return response()->json(['message' => 'Produits supprimés avec succès']);
+        return response()->json(['message' => 'Produit supprimé avec succès']);
     }
 
 
 
-    public function update(Request $request, $codePro)
-    {
-
+    public function update(Request $request, $codePro){
         $produit = Produit::findOrFail($codePro);
         $validatedData = $request->validate([
             'codePro' => 'sometimes',
@@ -157,7 +148,7 @@ class ProduitController extends Controller
         return response()->json(['message' => 'produit modified successfully'], 201);
     }
 
-   public function deleteAll($idCategorie){
+    public function deleteAll($idCategorie){
 
        $pictureController = new PhotoController();
        $products = Produit::where('idCategorie', $idCategorie)->get();
@@ -170,6 +161,4 @@ class ProduitController extends Controller
 
         return Produit::where('idCategorie', $idCategorie)->delete();
     }
-
-
 }

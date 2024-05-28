@@ -45,9 +45,9 @@ class CategorieController extends Controller
             return response()->json(['message' => 'No categorie found for the specified idCat'], 404);
         }
        
-       $productController = new ProduitController();
-       $productController -> deleteAll($idCat);
-       $categorie->delete();
+        Produit::where('idCategorie', $idCat)->delete();
+
+        $categorie->delete();
 
         // Retourner une réponse de succès
         return response()->json(['message' => 'Category supprimé avec succès']);
