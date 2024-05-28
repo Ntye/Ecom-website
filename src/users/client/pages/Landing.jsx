@@ -27,30 +27,27 @@ const Landing = () => {
 
   const [cat1, setCat1] = useState([]);
   const [cat2, setCat2] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response1 = await axios.get('http://127.0.0.1:8000/api/products-by-category/1002');
-        console.log(response1.data); // Debug: log the photo data
-        setCat1(response1.data);
+        const response1 = await axios.get('http://127.0.0.1:8000/api/products-by-category/1002')
+        console.log(response1.data) // Debug: log the photo data
+        setCat1(response1.data)
 
-        const response2 = await axios.get('http://127.0.0.1:8000/api/products-by-category/1000');
-        console.log(response2.data); // Debug: log the photo data
-        setCat2(response2.data);
+        const response2 = await axios.get('http://127.0.0.1:8000/api/products-by-category/1000')
+        console.log(response2.data) // Debug: log the photo data
+        setCat2(response2.data)
 
-        setLoading(false);
+        // setLoading(false)
       } catch (err) {
-        setError(err.message);
-        setLoading(false);
+        setError(err.message)
       }
-    };
-
+    }
     fetchCategories();
-  }, []);
+  }, [])
 
   if (error) {
     return <p>Error fetching products: {error}</p>;
@@ -112,9 +109,9 @@ const Landing = () => {
       <div className='product_section'>
         <h5 className="product_list_title">Nos Polos</h5>
         <div className="product_list">
-          {cat1.slice(0, 6).map(prod => (
+          {cat1.slice(0, 5).map(prod => (
             <Link to={"/client/product/"+prod.codePro} className="prod-link">
-              <ProductCard key={prod.codePro} title={prod.nomPro} image={prod.pictures[0].lienPhoto} price={20.99}/>
+              <ProductCard key={prod.codePro} title={prod.nomPro} image={prod.pictures[0].lienPhoto} price={prod.prix}/>
             </Link>
           ))}
         </div>
@@ -123,9 +120,9 @@ const Landing = () => {
       <div className='product-section'>
         <h5 className="product_list_title">Nos T-Shits</h5>
         <div className="product_list">
-          {cat2.slice(0, 6).map(prod => (
+          {cat2.slice(0, 5).map(prod => (
             <Link to={"/client/product/"+prod.codePro} className="prod-link">
-              <ProductCard key={prod.codePro} title={prod.nomPro} image={prod.pictures[0].lienPhoto} price={20.99}/>
+              <ProductCard key={prod.codePro} title={prod.nomPro} image={prod.pictures[0].lienPhoto} price={prod.prix}/>
             </Link>
           ))}
         </div>

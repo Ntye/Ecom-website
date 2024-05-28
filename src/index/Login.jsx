@@ -5,11 +5,9 @@ import {Link} from 'react-router-dom'
 import Image from "../assets/log.svg"
 import swal from 'sweetalert'
 import axios from "axios";
-import {useAuth} from "../users/client/components/Auth.jsx";
 
 export default function Login() {
 
-  const {auth, login} = useAuth()
   let linkname = ""
 
   async function handleSubmit (e) {
@@ -77,9 +75,9 @@ export default function Login() {
 return (
   <div className='centered'>
     <div className='entries'>
-      <span className='intro-word'>CONNECTEZ VOUS SUR <span className='store'>AllStore</span></span>
-      <div className='note'><span className='sub-text'>Si vous n’avez pas un compte existant cliquez</span> {'  '}
-      <Link to="signup" className='link-deco'>ici</Link></div>
+      <span className='intro-word'>LOG IN TO <span className='store'>AllStore</span></span>
+      <div className='note'><span className='sub-text'>If you do not have an existing account, click</span> {'  '}
+      <Link to="signup" className='link-deco'>Here!</Link></div>
       <div className='entries-pic'>
         <Form  style={{ width: '400px' }} onSubmit={handleSubmit} method='POST'>
 
@@ -88,27 +86,27 @@ return (
               <Form.Control
                 name='user'
                 type='text'
-                placeholder="Nom d'utilisateur"
+                placeholder="Username"
               />
             </Form.Group>
           </Row>
-          <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
+          <span className='sub-text text-bel' >You can use letters, numbers and symbols</span>
 
           <Row className='mb-3'>
             <Form.Group as={Col} controlId="password">
               <Form.Control
                 name="pwd"
                 type="password"
-                placeholder="Mot de Passe"
+                placeholder="Password"
                 />
             </Form.Group>
           </Row>
 
           <Button className='custom-button' variant="secondary" type="submit">
-            Connectez Vous
+            LOG IN
           </Button><br/><br/>
-          <span className='sub-text'>Vous etes un employer? </span> {'  '}
-          <Link to="/connexion/login-employee" className='link-deco'>Cliquer ici!</Link>
+          <span className='sub-text'>Are you an employee? </span> {'  '}
+          <Link to="/connexion/login-employee" className='link-deco'>Click Here!</Link>
         </Form>
         <img className='image' src={Image} alt="/"/>
       </div>

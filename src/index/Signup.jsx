@@ -9,6 +9,14 @@ import {useEffect, useState} from "react";
 import axios from 'axios';
 const Signup = () => {
   const [cities, setCities] = useState([]);
+  const Fields = {
+    "typeGest": "Employment Type",
+    "nomGest": "Name",
+    "login": "Username",
+    "mobile": "Telephone Number",
+    "pwd": "Password",
+    "confpwd": "Confimation Password"
+  }
 
   async function handleSubmit (e) {
     e.preventDefault();
@@ -96,49 +104,68 @@ const Signup = () => {
   return (
     <div className='centered'>
       <div className='entries'>
-        <span className='intro-word'>CREEZ VOTRE COMPTE SUR <span className='store'>AllStore</span></span>
-        <div className='note'><span className='sub-text'>Si vous avez déjà un compte existant cliquez</span> {'  '}
-          <Link to="/connexion" className='link-deco'>ici</Link></div>
+        <span className='intro-word'>CREATE YOUR ACCOUNT ON <span className='store'>AllStore</span></span>
+        <div className='note'><span className='sub-text'>If you already have an account click</span> {'  '}
+          <Link to="/connexion" className='link-deco'>HERE!</Link></div>
         <div className='entries-pic'>
 
           <Form style={{ width: '400px' }} onSubmit={handleSubmit}  method='POST'>
+
             <Row className="mb-3">
               <Form.Group as={Col} controlId="Name">
-                <Form.Control name="nom" type="text" placeholder="Nom"/>
+                <Form.Control
+                  name="nom"
+                  type="text"
+                  placeholder="Name"/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="Surname">
-                <Form.Control name="prenom" type="text" placeholder="Prenom"/>
+                <Form.Control
+                  name="prenom"
+                  type="text"
+                  placeholder="Surname"/>
               </Form.Group>
             </Row>
 
 
-            <span className='sub-text text-bel' >Vous pouvez utiliser les lettres les chiffres et les symboles </span>
+            <span className='sub-text text-bel' >You can use letters, numbers and symbols </span>
             <Form.Group className="user" controlId="username">
               <Form.Control 
                 name='user'
                 type='text'
-                placeholder="Nom d'utilisateur" 
+                placeholder="Username"
               />
             </Form.Group>
             <Row className="pass">
               <Form.Group as={Col} controlId="Pwd">
-                <Form.Control name="pwd" type="password" placeholder="Password"/>
+                <Form.Control
+                  name="pwd"
+                  type="password"
+                  placeholder="Password"
+                />
               </Form.Group>
 
               <Form.Group as={Col} controlId="Confirmation-pwd">
-                <Form.Control name="confpwd" type="password" placeholder="Confirm Password"/>
+                <Form.Control
+                  name="confpwd"
+                  type="password"
+                  placeholder="Confirmation Password"
+                />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="Numero">
-                <Form.Control name="mobile" type="text" placeholder="Numero"/>
+                <Form.Control
+                  name="mobile"
+                  type="text"
+                  placeholder="Telephone Number"
+                />
               </Form.Group>
 
               <Form.Group as={Col} controlId="Ville">
-                <Form.Select name="idVille" defaultValue="Ville">
-                  <option value='' type='text'>Ville</option>
+                <Form.Select name="idVille" defaultValue="City">
+                  <option value='' type='text'>City</option>
                   {cities.map((item) => (
                     <option key={item.idVille} value={item.idVille}>{item.libelle}</option>
                   ))}
@@ -146,7 +173,7 @@ const Signup = () => {
               </Form.Group>
             </Row>
 
-            <span className='sub-text text-bel' >Date de Naissance </span>
+            <span className='sub-text text-bel' >Date of Birth</span>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="Date">
                 <Form.Control name="dateNaiss" type="date" placeholder="Date de naissance"/>
@@ -154,18 +181,18 @@ const Signup = () => {
 
               <Form.Group as={Col} controlId="Sexe">
                 <Form.Select name='sexe'>
-                  <option value="">Sexe</option>
-                  <option value ="0" type='text'> Homme </option>
-                  <option value ="1" type='text'>Femme</option>
+                  <option value="">Gender</option>
+                  <option value ="0" type='text'>Male</option>
+                  <option value ="1" type='text'>Female</option>
                 </Form.Select>
               </Form.Group>
             </Row>
 
             <Button className='custom-button' variant="secondary" type="submit" value="SEND">
-              Inscrivez Vous
+              SIGN UP
             </Button><br/><br/>
-            <span className='sub-text'>Vous etes un employer? </span> {'  '} 
-            <Link to="/connexion/signup-employee" className='link-deco'>Cliquer ici!</Link>
+            <span className='sub-text'>Are you an employee? </span> {'  '}
+            <Link to="/connexion/signup-employee" className='link-deco'>Click Here!</Link>
           </Form>
           
           <img className='image' src={Image} alt="/" />

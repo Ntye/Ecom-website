@@ -1,57 +1,64 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import {
+  DataGrid,
+  GridToolbarQuickFilter,
+  GridLogicOperator,
+} from '@mui/x-data-grid';
+import { useDemoData } from '@mui/x-data-grid-generator';
 
-function Location() {
-
-  const [photo, setPhoto] = useState(null);
-  const [codePro, setCodePro] = useState('');
-  const [message, setMessage] = useState('');
-
-  const [error, setError] = useState(null);
-
-  if (error) {
-    return <p>Error fetching photos: {error}</p>;
-  }
-
-  const handlePhotoChange = (e) => {
-    setPhoto(e.target.files[0]);
-  };
-
-  const handleCodeProChange = (e) => {
-    setCodePro(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData();
-    formData.append('photo', photo);
-    formData.append('codePro', codePro);
-
-    try {
-      const response = await axios.post('http://127.0.0.1:8000/api/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      setMessage(response.data.message || 'Photo uploaded successfully!');
-    } catch (error) {
-      setMessage('An error occurred while uploading the photo.');
-    }
-  };
-
-
+function QuickSearchToolbar() {
   return (
-    <div>
-      <h2>Upload Photo</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <input type="file" name="photo" required onChange={handlePhotoChange}/>
-        <input type="text" name="codePro" required value={codePro} onChange={handleCodeProChange} placeholder="Code du produit"/>
-        <button type="submit">Upload</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
-  )
+    <Box
+      sx={{
+        p: 0.5,
+        pb: 0,
+      }}
+    >
+      <GridToolbarQuickFilter
+        quickFilterParser={(searchInput) =>
+          searchInput
+            .split(',')
+            .map((value) => value.trim())
+            .filter((value) => value !== '')
+        }
+      />
+    </Box>
+  );
 }
 
-export default Location;
+const VISIBLE_FIELDS = ['name', 'rating', 'country', 'dateCreated', 'isAdmin'];
+
+export default function Location() {
+  const { data } = useDemoData({
+    dataSet: 'Employee',
+    visibleFields: VISIBLE_FIELDS,
+    rowLength: 100,
+  });
+
+  // Otherwise filter will be applied on fields such as the hidden column id
+  const columns = React.useMemo(
+    () => data.columns.filter((column) => VISIBLE_FIELDS.includes(column.field)),
+    [data.columns],
+  );
+
+  return (
+    <Box sx={{ height: 400, width: 1 }}>
+      <DataGrid
+        {...data}
+        columns={columns}
+        initialState={{
+          ...data.initialState,
+          filter: {
+            ...data.initialState?.filter,
+            filterModel: {
+              items: [],
+              quickFilterLogicOperator: GridLogicOperator.Or,
+            },
+          },
+        }}
+        slots={{ toolbar: QuickSearchToolbar }}
+      />
+    </Box>
+  );
+}

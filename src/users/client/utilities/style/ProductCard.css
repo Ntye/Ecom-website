@@ -4,18 +4,14 @@
 }
 
 .product_card {
-    width: 10.5rem;
-    /*align-items: center;*/
-    padding-left: 0.225rem;
+    width: 12.5rem;
     margin-left: 20px;
     margin-right: 20px;
-    border-radius: 20px;
 }
 
 .card_image {
-    border-radius: 20px;
-    width: 10rem;
-    height: 10rem;
+    width: 12.5rem;
+    height: 12.5rem;
     margin-top: 0.25rem;
 }
 

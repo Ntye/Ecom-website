@@ -29,44 +29,43 @@ export default function Cart() {
   const checking = (state = false) => setCheckboxStates(cartItems.map(() => state))
 
   const calculateTotalAmount = () => {
-    let total = 0;
+    let total = 0
     cartItems.forEach((item, index) => {
       if (checkboxStates[index]) {
         total += updatedCartItems[index].product.quantite* item.montant
       }
-    });
-    return total;
-  };
+    })
+    return total
+  }
 
   const countSelectedItems = () => {
-    let count = 0;
+    let count = 0
     checkboxStates.forEach(checked => {
       if (checked) {
-        count++;
+        count++
       }
-    });
-    return count;
-  };
+    })
+    return count
+  }
 
   useEffect(() => {
     setCheckboxStates(cartItems.map(() => false))
     return () => {}
-  }, []);
+  }, [])
 
   useEffect(() => {
     const fetchCities = async () => {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/cities')
-        const { data } = response;
-        setCities(data);
+        const { data } = response
+        setCities(data)
 
       } catch (error) {
-        console.error('Error fetching cities:', error);
+        console.error('Error fetching cities:', error)
       }
-    };
-
-    fetchCities();
-  }, []);
+    }
+    fetchCities()
+  }, [])
 
 
   useEffect(() => {
@@ -75,18 +74,17 @@ export default function Cart() {
         .then(response => {
           console.log(response.data);
           setCartItems(response.data.commandes)
-          // console.log(cartItems)
         })
         .catch(error => {
-          console.error(error);
+          console.error(error)
         })
         .finally(() => {
-          console.log('Request completed');
+          console.log('Request completed')
         });
     };
 
-    fetchProduct();
-  }, []);
+    fetchProduct()
+  }, [])
 
   const selectedItems = cartItems.filter((_, index) => checkboxStates[index])
 

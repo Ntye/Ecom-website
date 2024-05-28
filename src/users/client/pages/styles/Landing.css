@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.cat-link:hover {
+  color: #9c4908;
+}
+
 /*Carousel*/
 .carousel_title {
   margin-left: 145px;
