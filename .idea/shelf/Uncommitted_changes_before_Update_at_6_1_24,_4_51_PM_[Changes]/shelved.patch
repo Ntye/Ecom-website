@@ -1,0 +1,57 @@
+Index: .vite/deps/_metadata.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"hash\": \"6d26ee11\",\n  \"configHash\": \"5165c9c6\",\n  \"lockfileHash\": \"e3b0c442\",\n  \"browserHash\": \"6a2cb654\",\n  \"optimized\": {},\n  \"chunks\": {}\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.vite/deps/_metadata.json b/.vite/deps/_metadata.json
+--- a/.vite/deps/_metadata.json	(revision 7e68d1ee35279110ca2c8d90d8219eead48cfb35)
++++ b/.vite/deps/_metadata.json	(date 1717257078057)
+@@ -1,8 +1,40 @@
+ {
+-  "hash": "6d26ee11",
++  "hash": "ad4c4087",
+   "configHash": "5165c9c6",
+-  "lockfileHash": "e3b0c442",
+-  "browserHash": "6a2cb654",
+-  "optimized": {},
+-  "chunks": {}
++  "lockfileHash": "3fe3a080",
++  "browserHash": "7e925982",
++  "optimized": {
++    "react": {
++      "src": "../../node_modules/react/index.js",
++      "file": "react.js",
++      "fileHash": "4f2de95b",
++      "needsInterop": true
++    },
++    "react-dom/client": {
++      "src": "../../node_modules/react-dom/client.js",
++      "file": "react-dom_client.js",
++      "fileHash": "2a2fa756",
++      "needsInterop": true
++    },
++    "react-router-dom": {
++      "src": "../../node_modules/react-router-dom/dist/index.js",
++      "file": "react-router-dom.js",
++      "fileHash": "38c38790",
++      "needsInterop": false
++    },
++    "react-bootstrap/Spinner": {
++      "src": "../../node_modules/react-bootstrap/esm/Spinner.js",
++      "file": "react-bootstrap_Spinner.js",
++      "fileHash": "b16e4a0b",
++      "needsInterop": false
++    }
++  },
++  "chunks": {
++    "chunk-UWZXFKA6": {
++      "file": "chunk-UWZXFKA6.js"
++    },
++    "chunk-UPDK7Z2H": {
++      "file": "chunk-UPDK7Z2H.js"
++    }
++  }
+ }
+\ No newline at end of file
