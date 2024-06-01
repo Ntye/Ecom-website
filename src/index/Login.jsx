@@ -80,7 +80,6 @@ return (
       <Link to="signup" className='link-deco'>Here!</Link></div>
       <div className='entries-pic'>
         <Form  style={{ width: '400px' }} onSubmit={handleSubmit} method='POST'>
-
           <Row className='mb-3'>
             <Form.Group className="user" controlId="username">
               <Form.Control
