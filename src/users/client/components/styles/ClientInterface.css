@@ -1,0 +1,38 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-area {
+  flex: 1; /* Allow content area to expand to fill remaining space */
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/*Breadcrumbs*/
+.breadcrumb {
+  margin-left: 45px;
+}
+
+.breadcrumb-item {
+  color: rgb(231, 69, 69);
+  transition: transform 0.3s ease;
+}
+
+.breadcrumb-item:hover {
+  color: #9c4908;
+  transform: translateY(-1.5px);
+}
+
+.breadcrumb-item-active {
+  color: rgb(115, 180, 70);
+  transition: transform 0.3s ease;
+}
+
+.breadcrumb-item-active:hover {
+  color: #3b6518;
+  transform: translateY(-1.5px);
+}

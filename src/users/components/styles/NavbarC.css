@@ -1,0 +1,78 @@
+.coll {
+    background-color: white ;
+}
+
+.logo {
+    margin-left: 50px;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-link {
+    font-family: "Inika", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nav-link {
+    color: rgb(231, 69, 69);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #9c4908;
+    transform: translateY(-10px);
+}
+
+.nav-link-active {
+    color: rgb(110, 5, 5);
+    text-decoration: none;
+}
+
+.nav-link-active:hover {
+    color: rgb(110, 5, 5);
+    transform: translateY(0px);
+}
+
+.custom-offcanvas {
+    width: 200px; /* Adjust the width as needed */
+}
+
+.custom-body {
+    display: flex;
+    margin-right: 30px;
+}
+
+.custom-search {
+    height: 40px;
+    display: flex;
+    margin-top: 12px;
+    padding-right: 0;
+    margin-right: 10px;
+}
+
+.custom-searchbutton {
+    border-color: rgb(231, 69, 69);
+    color: rgb(231, 69, 69);
+    border-width: 0.15rem;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.custom-searchbutton:hover {
+    border-color: #9c4908;
+    background-color: #9c4908;
+    color: rgb(255, 255, 255);
+    border-width: 0.15rem;
+}
+
+.search-input {
+    margin-right: 0rem;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}

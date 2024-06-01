@@ -1,0 +1,56 @@
+.item-container {
+    display: flex;
+    margin: 20px;
+}
+
+.item-content {
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.custom-checkbox {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.item-image {
+    border-radius: 10px;
+    width: 100px;
+    height: 110px;
+}
+
+.price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.item-input {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+
+.item-number {
+    width: 4rem;
+}
+
+.total {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80px;
+}
+
+.trash-button {
+    margin-left: 10px;
+    align-items: center;
+    background-color: #FEE6E6;;
+    border-color: #FEE6E6;
+    mso-border-shadow: no;
+}
+.trash {
+    margin-left: 30px;
+}

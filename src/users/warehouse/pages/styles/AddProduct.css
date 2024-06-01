@@ -1,0 +1,39 @@
+.whole {
+    padding-top: 20px;
+    justify-content: space-between;
+    margin-right: 200px;
+}
+
+.prod-title {
+    margin-left: 100px;
+}
+.add-item-form{
+    width: 400px;
+    margin-left: 100px;
+}
+
+.field {
+    height: 40px;
+}
+
+.qte {
+    margin-left: -2px;
+}
+
+.add-button {
+    margin-left: 15px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-width: 3px;
+    border-color: rgb(231, 69, 69);
+    background-color: rgb(231, 69, 69);
+}
+
+.add-button:hover {
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(231, 69, 69);
+    border-color: rgb(231, 69, 69);
+    background-color: white;
+}
