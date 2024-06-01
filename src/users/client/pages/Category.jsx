@@ -7,7 +7,7 @@ function Category() {
 
   return (
     <div>
-      Category
+      Category heheheeeeeee
       {param}
     </div>
   );
